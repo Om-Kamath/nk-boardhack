@@ -24,6 +24,8 @@
       <nav class="flex items-center gap-4">
         <a href="#hackathons" class="nav-link" data-i18n="nav.hackathons">Hackathons</a>
         <a href="#stays" class="nav-link" data-i18n="nav.stays">Stays</a>
+        <a href="#forge" class="nav-link">Your twin</a>
+        <a href="#openboard" class="nav-link">Open board</a>
         <a href="#winners" class="nav-link" data-i18n="nav.winners">Winners</a>
         <a href="#founders" class="nav-link" data-i18n="nav.founders">Founders</a>
         <a href="#entrances" class="nav-link" data-i18n="nav.entrances">Entrance finder</a>
@@ -161,6 +163,34 @@
         </button>
       </div>
       <p id="koi-pond-live" class="koi-sr-only" role="status" aria-live="polite"></p>
+    </section>
+
+    <!-- Twin Forge: archetype quiz -->
+    <section id="forge" class="container section" aria-labelledby="forge-heading">
+      <h2 id="forge-heading">The Twin Forge</h2>
+      <p class="text-muted" style="margin-top: var(--space-1);">Ninety seconds, ten questions — forge the twin that follows your hackathon career.</p>
+      <div id="forge-mount"></div>
+    </section>
+
+    <!-- Digital twin dashboard -->
+    <section id="twin" class="container section" aria-labelledby="twin-heading">
+      <h2 id="twin-heading">Your twin</h2>
+      <p class="text-muted" style="margin-top: var(--space-1);">A koi that grows with every hackathon you log. Everything stays in this browser.</p>
+      <div id="twin-mount"></div>
+    </section>
+
+    <!-- The Oracle -->
+    <section id="oracle" class="container section" aria-labelledby="oracle-heading">
+      <h2 id="oracle-heading">The Oracle</h2>
+      <p class="text-muted" style="margin-top: var(--space-1);">Your twin's verdict on where to build next — one pick, with receipts.</p>
+      <div id="oracle-mount"></div>
+    </section>
+
+    <!-- Open Board: community submissions -->
+    <section id="openboard" class="container section" aria-labelledby="openboard-heading">
+      <h2 id="openboard-heading">The Open Board</h2>
+      <p class="text-muted" style="margin-top: var(--space-1);">Hackathons posted by builders, for builders — crowd-seconded, honestly labeled.</p>
+      <div id="openboard-mount"></div>
     </section>
 
     <!-- Just concluded / big pools -->
@@ -587,6 +617,10 @@
   <script src="stays-data.js"></script>
   <script src="stays.js"></script>
   <script src="koi.js"></script>
+  <script src="quiz.js"></script>
+  <script src="twin.js"></script>
+  <script src="oracle.js"></script>
+  <script src="openboard.js"></script>
   <script src="i18n.js"></script>
 </body>
 </html>

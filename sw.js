@@ -19,7 +19,11 @@ const CORE_ASSETS = [
   "theme.js",
   "data.js",
   "app.js",
-  "script.js"
+  "script.js",
+  "quiz.js",
+  "twin.js",
+  "oracle.js",
+  "openboard.js"
 ];
 
 self.addEventListener("install", function (event) {
