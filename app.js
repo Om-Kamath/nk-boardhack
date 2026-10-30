@@ -17,6 +17,77 @@
     return start === end ? end : start + "–" + end;
   }
 
+  /* ---------- RSVP — “going or not, with who”, saved on this device ---------- */
+
+  const RSVP_KEY = "hackboard:rsvp:v1";
+
+  function escapeHtml(s) {
+    return String(s).replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;");
+  }
+
+  function loadRsvp() {
+    try { return JSON.parse(localStorage.getItem(RSVP_KEY)) || {}; } catch (e) { return {}; }
+  }
+
+  function saveRsvp(d) {
+    try { localStorage.setItem(RSVP_KEY, JSON.stringify(d)); } catch (e) { /* storage blocked — RSVP stays per-session */ }
+  }
+
+  function rsvpFor(id) {
+    const d = loadRsvp()[id];
+    return { going: d ? d.going || null : null, crew: d && d.crew ? d.crew : [] };
+  }
+
+  function rsvpRow(ev) {
+    const r = rsvpFor(ev.id);
+    const crew = r.crew.map(function (n, i) {
+      return '<span class="crew-chip">' + escapeHtml(n) +
+        '<button class="crew-x" data-ev="' + ev.id + '" data-idx="' + i + '" aria-label="Remove ' + escapeHtml(n) + '">×</button></span>';
+    }).join("");
+    return (
+      '<div class="rsvp-row" data-ev="' + ev.id + '">' +
+        '<button class="rsvp-btn rsvp-going' + (r.going === true ? " active" : "") + '">🎉 Going</button>' +
+        '<button class="rsvp-btn rsvp-not' + (r.going === false ? " active" : "") + '">Can\'t go</button>' +
+        '<span class="crew-add"><input class="input crew-input" type="text" placeholder="Add a friend…" maxlength="24" data-ev="' + ev.id + '">' +
+        '<button class="btn btn-ghost btn-sm crew-add-btn" data-ev="' + ev.id + '">+ Add</button></span>' +
+        (crew ? '<span class="crew-list">' + crew + '</span>' : "") +
+      '</div>'
+    );
+  }
+
+  function wireRsvp(card, ev) {
+    const row = card.querySelector(".rsvp-row");
+    if (!row) return;
+    row.querySelector(".rsvp-going").addEventListener("click", function () {
+      const d = loadRsvp(); const cur = d[ev.id] || {};
+      d[ev.id] = { going: cur.going === true ? null : true, crew: cur.crew || [] };
+      saveRsvp(d); renderEvents();
+    });
+    row.querySelector(".rsvp-not").addEventListener("click", function () {
+      const d = loadRsvp(); const cur = d[ev.id] || {};
+      d[ev.id] = { going: cur.going === false ? null : false, crew: cur.crew || [] };
+      saveRsvp(d); renderEvents();
+    });
+    const add = function () {
+      const inp = row.querySelector(".crew-input");
+      const name = inp.value.trim();
+      if (!name) return;
+      const d = loadRsvp(); const cur = d[ev.id] || {};
+      d[ev.id] = { going: cur.going || null, crew: (cur.crew || []).concat([name]).slice(0, 12) };
+      saveRsvp(d); renderEvents();
+    };
+    row.querySelector(".crew-add-btn").addEventListener("click", add);
+    row.querySelector(".crew-input").addEventListener("keydown", function (e) { if (e.key === "Enter") { e.preventDefault(); add(); } });
+    row.querySelectorAll(".crew-x").forEach(function (btn) {
+      btn.addEventListener("click", function () {
+        const d = loadRsvp(); const cur = d[ev.id] || {};
+        (cur.crew || []).splice(Number(btn.dataset.idx), 1);
+        d[ev.id] = { going: cur.going || null, crew: cur.crew || [] };
+        saveRsvp(d); renderEvents();
+      });
+    });
+  }
+
   /* ---------- Event cards ---------- */
 
   function eventCard(ev, opts) {
@@ -32,18 +103,30 @@
       ? '<span class="event-meta">📍 ' + ev.location + " · " + fmtRange(ev.dates, ev.deadline) + "</span>"
       : '<span class="event-meta">🌐 Online · ' + fmtRange(ev.dates, ev.deadline) + "</span>";
 
+    const hostLine = ev.host
+      ? '<div class="event-meta host-line">🏡 Hosted by ' + escapeHtml(ev.host) + (ev.venue ? " · " + escapeHtml(ev.venue) : "") + "</div>"
+      : "";
+    const hostIntel = ev.hostInsight
+      ? '<details class="host-details"><summary>Host intel</summary><p class="host-insight">' + escapeHtml(ev.hostInsight) + "</p></details>"
+      : "";
+    const rsvp = opts.showDue !== false && ev.format === "irl" ? rsvpRow(ev) : "";
+
     card.innerHTML =
       '<div class="flex items-center justify-between gap-2">' +
         "<h3>" + ev.name + "</h3>" + due +
       "</div>" +
       '<div class="prize">' + ev.prize + "</div>" +
       loc +
+      hostLine +
       '<p class="event-desc">' + ev.blurb + "</p>" +
+      hostIntel +
+      rsvp +
       '<div class="event-meta">' +
         ev.tags.map(function (t) { return '<span class="tag">' + t + "</span>"; }).join("") +
       "</div>" +
       '<a class="btn btn-secondary btn-sm" href="' + ev.url + '" target="_blank" rel="noopener" style="margin-top: var(--space-2);">Register ↗</a>';
 
+    if (rsvp) wireRsvp(card, ev);
     return card;
   }
 
@@ -53,6 +136,12 @@
     { id: "all", label: "All", test: function () { return true; } },
     { id: "online", label: "Online", test: function (ev) { return ev.format === "online"; } },
     { id: "irl", label: "IRL", test: function (ev) { return ev.format === "irl"; } },
+    { id: "nyc", label: "NYC", test: function (ev) { return ev.hub === "NYC"; } },
+    { id: "sf", label: "SF", test: function (ev) { return ev.hub === "SF"; } },
+    { id: "sanjose", label: "San Jose", test: function (ev) { return ev.hub === "San Jose"; } },
+    { id: "boston", label: "Boston", test: function (ev) { return ev.hub === "Boston"; } },
+    { id: "seattle", label: "Seattle", test: function (ev) { return ev.hub === "Seattle"; } },
+    { id: "plans", label: "🎉 My plans", test: function (ev) { return rsvpFor(ev.id).going === true; } },
     { id: "ai", label: "AI & agents", test: function (ev) { return ev.tags.indexOf("ai") !== -1 || ev.tags.indexOf("agents") !== -1; } },
     { id: "students", label: "Students", test: function (ev) { return ev.tags.indexOf("students") !== -1; } },
     { id: "web3", label: "Web3", test: function (ev) { return ev.tags.indexOf("web3") !== -1; } },
@@ -144,6 +233,8 @@
     fmtRange: fmtRange,
     eventCard: eventCard,
     daysLeft: daysLeft,
-    countdownLabel: countdownLabel
+    countdownLabel: countdownLabel,
+    rsvpFor: rsvpFor,
+    escapeHtml: escapeHtml
   };
 })();
