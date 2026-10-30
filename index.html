@@ -190,6 +190,58 @@
       </div>
     </section>
 
+    <!-- Investor pitch script -->
+    <section id="pitch" class="container section">
+      <h2>Investor pitch-script generator</h2>
+      <p class="text-muted" style="margin-top: var(--space-1);">Fill in what you have — blank fields become bracketed prompts you can answer in the room. The output is a timed ~90-second script with stage directions, downloadable as markdown, and one click sends it to the demo-video generator below.</p>
+      <div class="card predictor-card">
+        <div class="vid-grid">
+          <div class="flex flex-col gap-3">
+            <div>
+              <label class="pred-label" for="pitch-name">Project name</label>
+              <input id="pitch-name" class="input" type="text" placeholder="e.g. QueueLess">
+            </div>
+            <div>
+              <label class="pred-label" for="pitch-oneliner">One-liner</label>
+              <input id="pitch-oneliner" class="input" type="text" placeholder="the fastest way for X to do Y">
+            </div>
+            <div>
+              <label class="pred-label" for="pitch-problem">The problem</label>
+              <textarea id="pitch-problem" class="input" rows="2" placeholder="Who hurts, how often, and what it costs them today"></textarea>
+            </div>
+            <div>
+              <label class="pred-label" for="pitch-solution">The solution</label>
+              <textarea id="pitch-solution" class="input" rows="2" placeholder="The mechanism — how it removes the pain"></textarea>
+            </div>
+            <div>
+              <label class="pred-label" for="pitch-whynow">Why now</label>
+              <input id="pitch-whynow" class="input" type="text" placeholder="What changed recently that makes this possible today">
+            </div>
+          </div>
+          <div class="flex flex-col gap-3">
+            <div>
+              <label class="pred-label" for="pitch-market">Market &amp; buyers</label>
+              <input id="pitch-market" class="input" type="text" placeholder="Who pays, how many, at what price">
+            </div>
+            <div>
+              <label class="pred-label" for="pitch-traction">Traction</label>
+              <textarea id="pitch-traction" class="input" rows="2" placeholder="Users, pilots, revenue, waitlist — numbers, not adjectives"></textarea>
+            </div>
+            <div>
+              <label class="pred-label" for="pitch-team">Team</label>
+              <input id="pitch-team" class="input" type="text" placeholder="Why this team wins it">
+            </div>
+            <div>
+              <label class="pred-label" for="pitch-ask">The ask</label>
+              <textarea id="pitch-ask" class="input" rows="2" placeholder="Specific amount or intro, and what it buys"></textarea>
+            </div>
+            <button id="pitch-generate" class="btn btn-primary" style="align-self:flex-start;">📝 Generate pitch script</button>
+          </div>
+        </div>
+        <div id="pitch-result" style="margin-top: var(--space-4);"></div>
+      </div>
+    </section>
+
   <footer class="site-footer">
     <div class="container text-muted text-sm">
       Data tracked Oct 30, 2026 from ETHGlobal event pages, Devpost listings, DevGrants Daily, and organizer sites. Always verify dates and prize totals on the event page before booking travel.
@@ -203,5 +255,6 @@
   <script src="agent.js"></script>
   <script src="entrances.js"></script>
   <script src="video.js"></script>
+  <script src="script.js"></script>
 </body>
 </html>
