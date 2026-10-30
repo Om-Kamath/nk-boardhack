@@ -562,3 +562,69 @@ html.dark .host-details summary { color: var(--blue-400); }
 .founder-story { color: var(--text-secondary); font-size: 0.92rem; }
 .vc-list { padding-left: var(--space-4); display: flex; flex-direction: column; gap: var(--space-2); color: var(--text-secondary); font-size: 0.95rem; }
 html.dark .badge-info { color: #7dabff; }
+
+/* ===== Builder toolkit ===== */
+.tool-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: var(--space-4);
+}
+.tool-card { display: flex; flex-direction: column; gap: var(--space-2); align-items: flex-start; }
+.tool-card h3 { margin: 0; }
+.tool-out { min-height: 1.5rem; width: 100%; }
+.tool-idea {
+  background: var(--surface-secondary);
+  border-radius: var(--radius-md);
+  padding: var(--space-3);
+  line-height: 1.5;
+}
+.tool-display {
+  font-variant-numeric: tabular-nums;
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--text-primary);
+}
+.tool-checklist { padding-left: var(--space-4); color: var(--text-secondary); display: flex; flex-direction: column; gap: var(--space-1); }
+.tool-fields { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: var(--space-2); width: 100%; }
+.judge-verdict {
+  margin-top: var(--space-2);
+  border-left: 3px solid var(--border-strong);
+  padding: var(--space-2) var(--space-3);
+}
+.tool-prefs { margin-top: var(--space-4); display: flex; flex-direction: column; gap: var(--space-3); }
+.tool-pref-row { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: var(--space-3); }
+.pref-btn.active { outline: 2px solid var(--border-focus); border-radius: var(--radius-sm); }
+.badge-strip { display: flex; flex-wrap: wrap; gap: var(--space-2); min-height: 1.8rem; }
+.tool-badge {
+  display: inline-flex; align-items: center; justify-content: center;
+  width: 30px; height: 30px; border-radius: 999px;
+  background: var(--surface-secondary);
+  filter: grayscale(1); opacity: 0.35;
+  cursor: help;
+}
+.tool-badge.earned { filter: none; opacity: 1; box-shadow: var(--shadow-lifted-card); }
+
+/* text-size and accessibility prefs */
+html.font-sm { font-size: 14px; }
+html.font-md { font-size: 16px; }
+html.font-lg { font-size: 18px; }
+html.reduced-motion *, html.reduced-motion *::before, html.reduced-motion *::after {
+  animation: none !important; transition: none !important; scroll-behavior: auto !important;
+}
+html.high-contrast { --text-secondary: var(--text-primary); --text-tertiary: var(--text-primary); --border-subtle: var(--border-strong); }
+
+/* judge-mode overlay */
+#judge-overlay {
+  position: fixed; inset: 0; z-index: 1000;
+  background: rgba(2, 6, 23, 0.7);
+  display: flex; align-items: center; justify-content: center;
+}
+.judge-overlay-card {
+  background: var(--surface-primary);
+  color: var(--text-primary);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-lifted-card);
+  padding: var(--space-6);
+  max-width: 420px;
+  text-align: center;
+}
