@@ -470,9 +470,9 @@ html.dark .host-details summary { color: var(--blue-400); }
 }
 .rsvp-btn:hover { background: var(--surface-hover); }
 .rsvp-btn.rsvp-going.active {
-  background: var(--green-100, #dcfce7);
-  border-color: #22c55e;
-  color: #166534;
+  background: var(--blue-100);
+  border-color: var(--blue-600);
+  color: var(--blue-800);
 }
 .rsvp-btn.rsvp-not.active {
   background: var(--surface-active);
@@ -510,7 +510,7 @@ html.dark .host-details summary { color: var(--blue-400); }
 .vid-preview {
   width: 100%;
   border-radius: var(--radius-md);
-  background: #0f172a;
+  background: var(--vid-stage);
   box-shadow: var(--shadow-lifted-card);
   aspect-ratio: 16 / 9;
 }
@@ -552,8 +552,8 @@ html.dark .host-details summary { color: var(--blue-400); }
 }
 .founder-badge { position: absolute; top: var(--space-2); left: var(--space-2); }
 .badge-info {
-  background: rgba(59, 130, 246, 0.15);
-  color: #3b82f6;
+  background: var(--state-error-bg);
+  color: var(--state-error-fg);
   border-radius: 999px;
   padding: 2px 10px;
   font-size: 0.72rem;
@@ -561,7 +561,7 @@ html.dark .host-details summary { color: var(--blue-400); }
 }
 .founder-story { color: var(--text-secondary); font-size: 0.92rem; }
 .vc-list { padding-left: var(--space-4); display: flex; flex-direction: column; gap: var(--space-2); color: var(--text-secondary); font-size: 0.95rem; }
-html.dark .badge-info { color: #7dabff; }
+html.dark .badge-info { color: var(--red-500); }
 
 /* ===== Builder toolkit ===== */
 .tool-grid {
@@ -616,7 +616,7 @@ html.high-contrast { --text-secondary: var(--text-primary); --text-tertiary: var
 /* judge-mode overlay */
 #judge-overlay {
   position: fixed; inset: 0; z-index: 1000;
-  background: rgba(2, 6, 23, 0.7);
+  background: rgba(10, 22, 20, 0.72);
   display: flex; align-items: center; justify-content: center;
 }
 .judge-overlay-card {
@@ -1099,5 +1099,240 @@ html.dark .stay-save.saved { color: var(--red-500); }
   .nav-link:hover, .stay-save:hover, .stay-modal-close:hover, .stay-thumb:hover,
   .stay-card:hover .stay-media img {
     transform: none;
+  }
+}
+
+/* =====================================================================
+   Citrus & teal identity — recolored at the token level only.
+   Every semantic token name is kept; only values change. Hex lives here
+   and nowhere else in this file. custom.css loads after styles.css, so
+   these definitions win the cascade and all component rules stay
+   token-driven (they flip with html.dark automatically).
+   ===================================================================== */
+:root {
+  /* Primary accent: teal (was pastel blue) */
+  --blue-50: #f0fdfa;
+  --blue-100: #ccfbf1;
+  --blue-200: #99f6e4;
+  --blue-300: #5eead4;
+  --blue-400: #2dd4bf;
+  --blue-500: #14b8a6;
+  --blue-600: #0d9488;
+  --blue-700: #0f766e;
+  --blue-800: #115e59;
+  --blue-900: #134e4a;
+  --blue-link: #0f766e;
+
+  /* Success stays green, shifted to a mint-emerald that harmonizes */
+  --green-100: #d1fae5;
+  --green-500: #34d399;
+  --green-600: #10b981;
+  --green-700: #059669;
+  --green-800: #047857;
+
+  /* Secondary accent: warm coral (was red) */
+  --red-100: #ffe4e6;
+  --red-500: #fb7185;
+  --red-600: #f43f5e;
+  --red-700: #e11d48;
+  --red-800: #be123c;
+
+  /* Highlights: amber (was orange) */
+  --orange-100: #fef3c7;
+  --orange-500: #fbbf24;
+  --orange-600: #d97706;
+  --orange-800: #b45309;
+
+  /* Warm porcelain surfaces (was cool gray) */
+  --surface-base: #fdfcf9;
+  --surface-primary: #fefdfb;
+  --surface-secondary: #f5f4ee;
+  --surface-elevated: #fefdfb;
+
+  /* Teal primary buttons (was near-black) */
+  --button-primary-bg: var(--blue-600);
+  --button-primary-fg: #ffffff;
+  --button-primary-hover: var(--blue-700);
+
+  /* Local accents for component rules (kept out of shared token names) */
+  --vid-stage: #0d2b28;
+  --citrus-accent: var(--orange-600);
+  --coral-accent: var(--red-600);
+}
+
+html.dark {
+  /* Deep slate-teal dark surfaces */
+  --surface-base: #0a1413;
+  --surface-primary: #0f1b1a;
+  --surface-secondary: #142220;
+  --surface-elevated: #0f1b1a;
+
+  /* Teal scale, brightened for dark backgrounds */
+  --blue-50: #04211f;
+  --blue-100: #062a27;
+  --blue-200: #0a3d38;
+  --blue-300: #10554e;
+  --blue-400: #1a6e66;
+  --blue-500: #2dd4bf;
+  --blue-600: #5eead4;
+  --blue-700: #99f6e4;
+  --blue-800: #ccfbf1;
+  --blue-900: #f0fdfa;
+  --blue-link: #5eead4;
+
+  --green-100: #062b22;
+  --green-500: #34d399;
+  --green-600: #10b981;
+  --green-700: #6ee7b7;
+  --green-800: #a7f3d0;
+
+  --red-100: #3f0d18;
+  --red-500: #fb7185;
+  --red-600: #f43f5e;
+  --red-700: #fda4af;
+  --red-800: #fecdd3;
+
+  --orange-100: #3b2a06;
+  --orange-500: #fbbf24;
+  --orange-600: #fbbf24;
+  --orange-800: #fde68a;
+
+  --button-primary-bg: var(--blue-500);
+  --button-primary-fg: #04211f;
+  --button-primary-hover: var(--blue-400);
+
+  --vid-stage: #071f1d;
+}
+
+/* =====================================================================
+   Motion system — one easing curve, 150–250ms, reduced-motion aware
+   ===================================================================== */
+:root {
+  --ease-smooth: cubic-bezier(0.4, 0, 0.2, 1);
+  --motion-fast: 150ms;
+  --motion-base: 200ms;
+  --motion-slow: 250ms;
+}
+
+html { scroll-behavior: smooth; }
+
+/* Buttons: unified timing, refined lift, visible pressed state */
+.btn,
+.filter-chip,
+.nav-link,
+.rsvp-btn,
+.stay-save,
+.stay-modal-close,
+.stay-thumb,
+.agent-launcher {
+  transition-timing-function: var(--ease-smooth);
+}
+.btn {
+  transition-duration: var(--motion-base);
+}
+.btn:hover { transform: translateY(-1px); }
+.btn:active {
+  transform: translateY(1px) scale(0.98);
+  transition-duration: var(--motion-fast);
+}
+
+/* Cards: consistent hover lift with softened shadow ramp */
+.event-card, .card-hover, .stay-card, .founder-card, .tool-card, .insights-card, .predictor-card {
+  transition:
+    transform var(--motion-base) var(--ease-smooth),
+    box-shadow var(--motion-base) var(--ease-smooth);
+}
+.event-card:hover, .card-hover:hover, .stay-card:hover, .founder-card:hover, .tool-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-tooltip);
+}
+.event-card:active, .card-hover:active, .stay-card:active {
+  transform: translateY(-1px);
+}
+
+/* Chips + nav: same curve, quicker settle */
+.filter-chip, .nav-link {
+  transition-duration: var(--motion-base);
+}
+.filter-chip:active, .nav-link:active { transform: scale(0.96); }
+.filter-chip:hover {
+  background: var(--blue-100);
+  color: var(--blue-800);
+}
+.filter-chip.active {
+  background: linear-gradient(90deg, var(--blue-200), var(--green-100));
+  box-shadow: inset 0 0 0 1.5px var(--blue-600);
+}
+.nav-link:hover { background: var(--orange-100); }
+
+/* Animated focus ring: halo fades in while the outline seats itself */
+.btn, .filter-chip, .nav-link,
+.stay-save, .stay-thumb, .stay-name-btn, .stay-modal-close,
+.input, .rsvp-btn, .crew-x {
+  transition-property: transform, background-color, color, border-color,
+    box-shadow, outline-offset, opacity;
+  transition-timing-function: var(--ease-smooth);
+}
+.btn:focus-visible, .filter-chip:focus-visible, .nav-link:focus-visible,
+.stay-save:focus-visible, .stay-thumb:focus-visible, .stay-name-btn:focus-visible,
+.stay-modal-close:focus-visible {
+  outline: 2px solid var(--blue-600);
+  outline-offset: 3px;
+  box-shadow: 0 0 0 5px var(--blue-100);
+  transition: outline-offset var(--motion-fast) var(--ease-smooth),
+    box-shadow var(--motion-base) var(--ease-smooth);
+}
+
+/* Modals: soft fade + scale on open */
+.stay-modal-backdrop {
+  animation: hb-fade-in var(--motion-base) var(--ease-smooth);
+}
+.stay-modal {
+  animation: hb-scale-in var(--motion-slow) var(--ease-smooth);
+}
+@keyframes hb-fade-in {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+@keyframes hb-scale-in {
+  from { opacity: 0; transform: scale(0.97) translateY(6px); }
+  to { opacity: 1; transform: scale(1) translateY(0); }
+}
+
+/* Details disclosures: gentle reveal */
+.host-details, .host-details summary {
+  transition: color var(--motion-fast) var(--ease-smooth);
+}
+.host-details[open] .host-insight {
+  animation: hb-fade-in var(--motion-base) var(--ease-smooth);
+}
+.host-details summary:hover { color: var(--blue-700); }
+
+/* Toast + agent panel already fade; align them to the shared curve */
+#hb-toast, .agent-panel {
+  transition-timing-function: var(--ease-smooth);
+  transition-duration: var(--motion-base);
+}
+
+/* Reduced motion: collapse everything to instant state changes */
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .btn, .event-card, .card-hover, .stay-card, .founder-card, .tool-card,
+  .insights-card, .predictor-card, .filter-chip, .nav-link, .stay-save,
+  .stay-modal-close, .stay-thumb, .rsvp-btn, .agent-launcher, .agent-panel,
+  #hb-toast, .stay-media img {
+    transition: none !important;
+  }
+  .btn:hover, .event-card:hover, .card-hover:hover, .stay-card:hover,
+  .founder-card:hover, .tool-card:hover, .filter-chip:hover, .nav-link:hover,
+  .stay-save:hover, .stay-modal-close:hover, .stay-thumb:hover,
+  .stay-card:hover .stay-media img {
+    transform: none !important;
+  }
+  .btn:active, .filter-chip:active, .nav-link:active {
+    transform: none !important;
+  }
+  .stay-modal-backdrop, .stay-modal, .host-details[open] .host-insight {
+    animation: none !important;
   }
 }

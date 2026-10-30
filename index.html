@@ -16,23 +16,24 @@
   <link rel="stylesheet" href="custom.css">
 </head>
 <body>
-    <a href="#hackathons" class="skip-link">Skip to the event board</a>
+    <a href="#hackathons" class="skip-link" data-i18n="skip.link">Skip to the event board</a>
     <span id="sr-announcer" class="visually-hidden" aria-live="polite"></span>
   <header class="site-header">
     <div class="container flex items-center justify-between">
       <a href="#top" class="brand">⚡ HackBoard</a>
       <nav class="flex items-center gap-4">
-        <a href="#hackathons" class="nav-link">Hackathons</a>
-        <a href="#winners" class="nav-link">Winners</a>
-        <a href="#founders" class="nav-link">Founders</a>
-        <a href="#entrances" class="nav-link">Entrance finder</a>
-        <a href="#predictor" class="nav-link">Win Predictor</a>
-        <a href="#stays" class="nav-link">Stays</a>
-        <a href="#media" class="nav-link">Media studio</a>
-        <a href="#toolkit" class="nav-link">Toolkit</a>
-        <a href="#calendar" class="nav-link">Calendar</a>
-        <a href="#team" class="nav-link">Team board</a>
-        <button class="theme-toggle btn btn-ghost btn-sm" aria-label="Toggle theme">
+        <a href="#hackathons" class="nav-link" data-i18n="nav.hackathons">Hackathons</a>
+        <a href="#stays" class="nav-link" data-i18n="nav.stays">Stays</a>
+        <a href="#winners" class="nav-link" data-i18n="nav.winners">Winners</a>
+        <a href="#founders" class="nav-link" data-i18n="nav.founders">Founders</a>
+        <a href="#entrances" class="nav-link" data-i18n="nav.entrances">Entrance finder</a>
+        <a href="#predictor" class="nav-link" data-i18n="nav.predictor">Win Predictor</a>
+        <a href="#media" class="nav-link" data-i18n="nav.media">Media studio</a>
+        <a href="#toolkit" class="nav-link" data-i18n="nav.toolkit">Toolkit</a>
+        <a href="#calendar" class="nav-link" data-i18n="nav.calendar">Calendar</a>
+        <a href="#team" class="nav-link" data-i18n="nav.team">Team board</a>
+        <select id="lang-select" class="input input-sm" aria-label="Language"></select>
+        <button class="theme-toggle btn btn-ghost btn-sm" aria-label="Toggle theme" data-i18n-aria="aria.theme">
           <svg class="icon-sun" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="4"/><path d="M12 2v2m0 16v2M4.9 4.9l1.4 1.4m11.4 11.4 1.4 1.4M2 12h2m16 0h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>
           <svg class="icon-moon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg>
         </button>
@@ -44,17 +45,18 @@
     <!-- Hero -->
     <section class="hero">
       <div class="container">
-        <span class="pill">Updated Oct 30, 2026</span>
-        <h1>Find hackathons. <span class="grad-text">Build what wins.</span></h1>
-        <p class="hero-sub">Hey builder — this is your cheat code. Every live hackathon worth your weekend, what last season's winners actually did, and an honest read on your odds. Grab a filter, find your crew, and go build something.</p>
+        <span class="pill" data-i18n="hero.updated">Updated Oct 30, 2026</span>
+        <h1><span data-i18n="hero.title1">Find hackathons.</span> <span class="grad-text" data-i18n="hero.title2">Build what wins.</span></h1>
+        <p class="hero-sub" data-i18n="hero.sub">Hey builder — this is your cheat code. Every live hackathon worth your weekend, what last season's winners actually did, and an honest read on your odds. Grab a filter, find your crew, and go build something.</p>
         <div class="hero-stats flex gap-6">
-          <div class="stat"><div class="stat-num">$300K+</div><div class="stat-label">tracked prize money open right now</div></div>
-          <div class="stat"><div class="stat-num">27</div><div class="stat-label">hackathons open for registration</div></div>
-          <div class="stat"><div class="stat-num">52%</div><div class="stat-label">of open events reward AI-agent builds</div></div>
+          <div class="stat"><div class="stat-num">$300K+</div><div class="stat-label" data-i18n="stats.prize">tracked prize money open right now</div></div>
+          <div class="stat"><div class="stat-num">27</div><div class="stat-label" data-i18n="stats.events">hackathons open for registration</div></div>
+          <div class="stat"><div class="stat-num">52%</div><div class="stat-label" data-i18n="stats.ai">of open events reward AI-agent builds</div></div>
         </div>
         <div class="flex gap-2" style="margin-top: var(--space-6);">
-          <a href="#hackathons" class="btn btn-primary">Browse hackathons</a>
-          <a href="#predictor" class="btn btn-secondary">Try the win predictor</a>
+          <a href="#hackathons" class="btn btn-primary" data-i18n="cta.browse">Browse hackathons</a>
+          <a href="#stays" class="btn btn-secondary" data-i18n="cta.findStay">Find a stay</a>
+          <a href="#predictor" class="btn btn-ghost" data-i18n="cta.predictor">Try the win predictor</a>
         </div>
       </div>
     </section>
@@ -62,49 +64,118 @@
     <!-- Hackathons -->
     <section id="hackathons" class="container section">
       <div class="flex items-center justify-between">
-        <h2>Open hackathons</h2>
-        <span class="text-muted text-sm">sorted by deadline</span>
+        <h2 data-i18n="h.hackathons">Open hackathons</h2>
+        <span class="text-muted text-sm" data-i18n="sub.sorted">sorted by deadline</span>
       </div>
       <div id="filters" class="flex gap-2" style="margin-top: var(--space-4);"></div>
       <div id="board-controls" class="board-controls">
-        <label class="text-sm text-muted" for="sort-select">Sort</label>
+        <label class="text-sm text-muted" for="sort-select" data-i18n="label.sort">Sort</label>
         <select id="sort-select" class="input input-sm">
-          <option value="deadline">Soonest deadline</option>
-          <option value="prize">Biggest prize</option>
-          <option value="name">A–Z</option>
+          <option value="deadline" data-i18n="opt.deadline">Soonest deadline</option>
+          <option value="prize" data-i18n="opt.prize">Biggest prize</option>
+          <option value="name" data-i18n="opt.az">A–Z</option>
         </select>
-        <label class="text-sm text-muted" for="prize-select">Prize</label>
+        <label class="text-sm text-muted" for="prize-select" data-i18n="label.prize">Prize</label>
         <select id="prize-select" class="input input-sm">
-          <option value="0">Any prize</option>
+          <option value="0" data-i18n="opt.anyprize">Any prize</option>
           <option value="10000">$10K+</option>
           <option value="50000">$50K+</option>
           <option value="100000">$100K+</option>
         </select>
-        <button id="remind-btn" class="btn btn-ghost btn-sm" title="Deadline reminders while HackBoard is open">🔔 Remind me</button>
+        <button id="remind-btn" class="btn btn-ghost btn-sm" title="Deadline reminders while HackBoard is open" data-i18n="btn.remind" data-i18n-title="tip.remind">🔔 Remind me</button>
       </div>
       <div id="compare-bar" class="compare-bar" hidden></div>
       <div id="event-grid" class="grid-events"></div>
       <div id="no-results" style="display:none;" class="card empty-state">
-        <p><strong>Nothing matches that combination.</strong></p>
-        <p class="text-muted text-sm">Try a broader filter — or clear everything and start over.</p>
-        <button id="reset-filters" class="btn btn-secondary btn-sm">Clear filters</button>
+        <p><strong data-i18n="msg.nomatch">Nothing matches that combination.</strong></p>
+        <p class="text-muted text-sm" data-i18n="msg.noresult">Try a broader filter — or clear everything and start over.</p>
+        <button id="reset-filters" class="btn btn-secondary btn-sm" data-i18n="btn.clearfilters">Clear filters</button>
       </div>
       <div id="compare-out" style="margin-top: var(--space-4);"></div>
     </section>
 
+    <!-- Stays near the hackathons -->
+    <section id="stays" class="container section">
+      <h2 data-i18n="h.stays">Stays near the hackathons</h2>
+      <p class="text-muted" style="margin-top: var(--space-1);" data-i18n="sub.stays">Illustrative listings for the demo — not live inventory. Verify on booking sites before booking.</p>
+
+      <div class="stays-search card">
+        <div class="stays-field stays-field-dest">
+          <label class="text-xs text-muted" for="stays-hub" data-i18n="label.dest">Destination</label>
+          <select id="stays-hub" class="input">
+            <option value="" data-i18n="opt.allHubs">All hubs</option>
+          </select>
+        </div>
+        <div class="stays-field">
+          <label class="text-xs text-muted" for="stays-checkin" data-i18n="label.checkin">Check-in</label>
+          <input id="stays-checkin" class="input" type="date">
+        </div>
+        <div class="stays-field">
+          <label class="text-xs text-muted" for="stays-checkout" data-i18n="label.checkout">Check-out</label>
+          <input id="stays-checkout" class="input" type="date">
+        </div>
+        <div class="stays-field stays-field-guests">
+          <label class="text-xs text-muted" for="stays-guests" data-i18n="label.guests">Guests</label>
+          <input id="stays-guests" class="input" type="number" min="1" max="8" step="1" value="1">
+        </div>
+      </div>
+
+      <div class="stays-filters">
+        <div class="stays-chip-row" id="stays-type-chips">
+          <button id="stays-saved-chip" type="button" class="filter-chip stays-saved-chip" aria-pressed="false"><span data-i18n="chip.saved">♥ Saved</span> <span class="stays-saved-count">0</span></button>
+        </div>
+        <div class="stays-price">
+          <label class="text-xs text-muted" for="stays-max-price" data-i18n="label.maxPrice">Max price</label>
+          <div class="stays-price-row flex items-center gap-2">
+            <input id="stays-max-price" type="range" min="40" max="400" step="10" value="400">
+            <span id="stays-price-label" class="text-sm" data-i18n="stays.anyprice">Any price</span>
+          </div>
+        </div>
+        <div class="stays-chip-row" id="stays-amenity-chips"></div>
+      </div>
+
+      <p class="stays-count text-sm text-muted" id="stays-count" aria-live="polite"></p>
+      <div id="stays-grid" class="stays-grid"></div>
+      <div id="stays-empty" class="card empty-state" style="display:none;">
+        <p><strong data-i18n="msg.nostays">No stays match that combo.</strong></p>
+        <p class="text-sm text-muted" data-i18n="msg.nostaysHint">Try widening the dates, price cap, or clearing a chip or two.</p>
+        <button id="stays-reset" class="btn btn-secondary btn-sm" data-i18n="btn.resetStays">Reset all filters</button>
+      </div>
+
+      <div id="stays-modal-backdrop" class="stay-modal-backdrop" hidden>
+        <div id="stays-modal" class="stay-modal" role="dialog" aria-modal="true" aria-labelledby="stays-modal-title">
+          <button id="stays-modal-close" class="stay-modal-close" type="button" aria-label="Close stay details" data-i18n-aria="aria.stayClose">✕</button>
+          <div id="stays-modal-body"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Koi pond: click a fish to reveal a stay -->
+    <section id="koi-pond-section" class="container section" aria-labelledby="koi-pond-heading">
+      <h2 id="koi-pond-heading" data-i18n="koi.heading">Dip into the pond — every koi hides a stay</h2>
+      <p class="text-muted" style="margin-top: var(--space-1);" data-i18n="koi.sub">Click a fish (or use the button) and it hands you one stay listing at a time.</p>
+      <div class="koi-pond-stage">
+        <canvas id="koi-pond-canvas" aria-hidden="true"></canvas>
+        <button id="koi-reveal-btn" class="koi-reveal-btn" type="button" data-i18n="koi.reveal">
+          Reveal a listing
+        </button>
+      </div>
+      <p id="koi-pond-live" class="koi-sr-only" role="status" aria-live="polite"></p>
+    </section>
+
     <!-- Just concluded / big pools -->
     <section class="container section">
-      <h2>Recently concluded</h2>
-      <p class="text-muted" style="margin-top: var(--space-1);">Big 2026 pools worth knowing what won — winner reads in the next section.</p>
+      <h2 data-i18n="h.concluded">Recently concluded</h2>
+      <p class="text-muted" style="margin-top: var(--space-1);" data-i18n="sub.concluded">Big 2026 pools worth knowing what won — winner reads in the next section.</p>
       <div id="concluded-grid" class="grid-events"></div>
     </section>
 
     <!-- Winners -->
     <section id="winners" class="container section">
-      <h2>Recent winners &amp; who's next</h2>
+      <h2 data-i18n="h.winners">Recent winners &amp; who's next</h2>
       <div class="grid-events" id="winners-grid"></div>
       <div class="card insights-card">
-        <h3 style="margin-bottom: var(--space-3);">What's actually winning in 2026</h3>
+        <h3 style="margin-bottom: var(--space-3);" data-i18n="h.winning2026">What's actually winning in 2026</h3>
         <ul class="insight-list">
           <li><strong>AI agents, everywhere.</strong> Of the ~14 hackathons tracked as open in November 2026, 9 are explicitly agent-themed (PayPal AI, Kiroween, Agent-Native, Vultr Agent Rush, UGREEN AI NAS, Code for India, DSH Hacks, AWS Strands, Qloo Agentic). Source: Devpost AI directory &amp; DevGrants Daily, Oct 2026.</li>
           <li><strong>Agent tools, not demos.</strong> The confirmed recent grand-prize case: <em>SalesShortcut</em> won the Agent Development Kit Hackathon with Google Cloud with an agent-oriented sales tool — and turned into a company with paying customers. Devpost's own blog cites it as the model outcome.</li>
@@ -116,30 +187,30 @@
 
     <!-- Predictor -->
     <section id="predictor" class="container section">
-      <h2>Win predictor</h2>
-      <p class="text-muted" style="margin-top: var(--space-1);">Pick what you're building and where you're building it. The predictor scores project archetypes against the trends in this board — a heuristic built from tracked sponsor tracks and winner data, not a crystal ball.</p>
+      <h2 data-i18n="h.predictor">Win predictor</h2>
+      <p class="text-muted" style="margin-top: var(--space-1);" data-i18n="sub.predictor">Pick what you're building and where you're building it. The predictor scores project archetypes against the trends in this board — a heuristic built from tracked sponsor tracks and winner data, not a crystal ball.</p>
       <div class="card predictor-card">
         <div class="flex flex-col gap-4">
           <div>
-            <label class="pred-label" for="pred-track">Your track</label>
+            <label class="pred-label" for="pred-track" data-i18n="label.track">Your track</label>
             <select id="pred-track" class="input">
-              <option value="agents">AI agents / automation</option>
-              <option value="defi">DeFi / on-chain finance</option>
-              <option value="devtools">Developer tooling / infra</option>
-              <option value="identity">Identity / security</option>
-              <option value="health">Healthcare / biotech</option>
-              <option value="consumer">Consumer / social</option>
+              <option value="agents" data-i18n="opt.agents">AI agents / automation</option>
+              <option value="defi" data-i18n="opt.defi">DeFi / on-chain finance</option>
+              <option value="devtools" data-i18n="opt.devtools">Developer tooling / infra</option>
+              <option value="identity" data-i18n="opt.identity">Identity / security</option>
+              <option value="health" data-i18n="opt.health">Healthcare / biotech</option>
+              <option value="consumer" data-i18n="opt.consumer">Consumer / social</option>
             </select>
           </div>
           <div>
-            <label class="pred-label" for="pred-venue">Venue</label>
+            <label class="pred-label" for="pred-venue" data-i18n="label.venue">Venue</label>
             <select id="pred-venue" class="input">
-              <option value="online">Online (Devpost-style, big field)</option>
-              <option value="irl">IRL campus/regional hackathon</option>
-              <option value="sponsor">Sponsor-track focused (ETHGlobal-style)</option>
+              <option value="online" data-i18n="opt.online">Online (Devpost-style, big field)</option>
+              <option value="irl" data-i18n="opt.irl">IRL campus/regional hackathon</option>
+              <option value="sponsor" data-i18n="opt.sponsor">Sponsor-track focused (ETHGlobal-style)</option>
             </select>
           </div>
-          <button id="pred-run" class="btn btn-primary" style="align-self: flex-start;">Predict my odds</button>
+          <button id="pred-run" class="btn btn-primary" style="align-self: flex-start;" data-i18n="btn.predict">Predict my odds</button>
         </div>
         <div id="pred-result"></div>
       </div>
@@ -153,35 +224,35 @@
         <span class="agent-avatar">🤖</span>
         <div>
           <div class="agent-name">HackBot</div>
-          <div class="agent-sub">hackathon intel · CV matching</div>
+          <div class="agent-sub" data-i18n="agent.sub">hackathon intel · CV matching</div>
         </div>
       </div>
-      <button id="agent-close" class="btn btn-ghost btn-sm" aria-label="Close agent">✕</button>
+      <button id="agent-close" class="btn btn-ghost btn-sm" aria-label="Close agent" data-i18n-aria="aria.agentClose">✕</button>
     </div>
     <div id="agent-messages" class="agent-messages"></div>
     <div class="agent-cv" id="agent-cv-zone">
-      <label class="agent-cv-label" for="agent-cv-file">📄 Drop or upload a CV (.txt) — or just paste it in chat</label>
+      <label class="agent-cv-label" for="agent-cv-file" data-i18n="agent.cvLabel">📄 Drop or upload a CV (.txt) — or just paste it in chat</label>
       <input type="file" id="agent-cv-file" accept=".txt,.md,.pdf" hidden>
       <div class="flex gap-2" style="margin-top: var(--space-2);">
-        <button id="agent-cv-btn" class="btn btn-secondary btn-sm">Upload CV</button>
-        <button id="agent-news-btn" class="btn btn-secondary btn-sm">What's new?</button>
+        <button id="agent-cv-btn" class="btn btn-secondary btn-sm" data-i18n="agent.upload">Upload CV</button>
+        <button id="agent-news-btn" class="btn btn-secondary btn-sm" data-i18n="agent.whatsnew">What's new?</button>
       </div>
     </div>
     <form id="agent-form" class="agent-input-row flex items-center gap-2">
-      <input id="agent-input" class="input" type="text" placeholder="Ask about deadlines, prizes, winners…" autocomplete="off">
-      <button class="btn btn-primary btn-sm" type="submit">Send</button>
+      <input id="agent-input" class="input" type="text" placeholder="Ask about deadlines, prizes, winners…" data-i18n-placeholder="agent.ph" autocomplete="off">
+      <button class="btn btn-primary btn-sm" type="submit" data-i18n="agent.send">Send</button>
     </form>
   </div>
-  <button id="agent-launcher" class="agent-launcher" aria-label="Open HackBoard agent">🤖</button>
+  <button id="agent-launcher" class="agent-launcher" aria-label="Open HackBoard agent" data-i18n-aria="aria.agentOpen">🤖</button>
 
     <!-- Entrance finder -->
     <section id="entrances" class="container section">
-      <h2>Venue entrance finder</h2>
-      <p class="text-muted" style="margin-top: var(--space-1);">Finding the front door of a big venue is its own boss fight. Drop a photo you took at the building — HackBoard reads its GPS data on-device and asks OpenStreetMap for tagged entrances nearby.</p>
+      <h2 data-i18n="h.entrances">Venue entrance finder</h2>
+      <p class="text-muted" style="margin-top: var(--space-1);" data-i18n="sub.entrances">Finding the front door of a big venue is its own boss fight. Drop a photo you took at the building — HackBoard reads its GPS data on-device and asks OpenStreetMap for tagged entrances nearby.</p>
       <div class="card predictor-card">
         <div id="ef-drop" class="ef-drop">
-          <p style="margin:0;">📸 Drop a venue photo here — or paste one, or click to browse</p>
-          <p class="text-muted text-sm" style="margin: var(--space-2) 0 0;">JPG with GPS data works best (photos taken with a phone camera; screenshots and re-shared images have location stripped).</p>
+          <p style="margin:0;" data-i18n="ef.drop1">📸 Drop a venue photo here — or paste one, or click to browse</p>
+          <p class="text-muted text-sm" style="margin: var(--space-2) 0 0;" data-i18n="ef.drop2">JPG with GPS data works best (photos taken with a phone camera; screenshots and re-shared images have location stripped).</p>
           <input type="file" id="ef-file" accept="image/*" hidden>
         </div>
         <div id="ef-result" style="margin-top: var(--space-4);"></div>
@@ -190,32 +261,32 @@
 
     <!-- Accessible demo video -->
     <section id="video" class="container section">
-      <h2>Accessible demo-video generator</h2>
-      <p class="text-muted" style="margin-top: var(--space-1);">Paste your project submission — title, one-liner, description, screenshots — and HackBoard composes an animated demo video with burned-in subtitles, right in your browser. You get a .webm plus a WebVTT caption file for wherever you submit.</p>
+      <h2 data-i18n="h.video">Accessible demo-video generator</h2>
+      <p class="text-muted" style="margin-top: var(--space-1);" data-i18n="sub.video">Paste your project submission — title, one-liner, description, screenshots — and HackBoard composes an animated demo video with burned-in subtitles, right in your browser. You get a .webm plus a WebVTT caption file for wherever you submit.</p>
       <div class="card predictor-card">
         <div class="vid-grid">
           <div class="flex flex-col gap-3">
             <div>
-              <label class="pred-label" for="vid-title">Project title</label>
-              <input id="vid-title" class="input" type="text" placeholder="e.g. QueueLess — real-time shelter availability">
+              <label class="pred-label" for="vid-title" data-i18n="label.vidTitle">Project title</label>
+              <input id="vid-title" class="input" type="text" placeholder="e.g. QueueLess — real-time shelter availability" data-i18n-placeholder="ph.vidTitle">
             </div>
             <div>
-              <label class="pred-label" for="vid-tagline">One-liner</label>
-              <input id="vid-tagline" class="input" type="text" placeholder="What it does in one sentence">
+              <label class="pred-label" for="vid-tagline" data-i18n="label.vidTagline">One-liner</label>
+              <input id="vid-tagline" class="input" type="text" placeholder="What it does in one sentence" data-i18n-placeholder="ph.vidTagline">
             </div>
             <div>
-              <label class="pred-label" for="vid-desc">Description — one caption per sentence gets generated</label>
-              <textarea id="vid-desc" class="input" rows="5" placeholder="Paste your Devpost description here. Each sentence becomes a timed caption beat."></textarea>
+              <label class="pred-label" for="vid-desc" data-i18n="label.vidDesc">Description — one caption per sentence gets generated</label>
+              <textarea id="vid-desc" class="input" rows="5" placeholder="Paste your Devpost description here. Each sentence becomes a timed caption beat." data-i18n-placeholder="ph.vidDesc"></textarea>
             </div>
             <div>
-              <label class="pred-label" for="vid-images">Screenshots (optional)</label>
+              <label class="pred-label" for="vid-images" data-i18n="label.vidImages">Screenshots (optional)</label>
               <input id="vid-images" class="input" type="file" accept="image/*" multiple>
               <p class="text-muted text-sm" id="vid-image-note" style="margin-top: var(--space-1);"></p>
             </div>
             <label class="text-sm text-muted" style="display:flex;align-items:center;gap:8px;">
-              <input type="checkbox" id="vid-voice"> Speak narration during render (preview only — browser speech can't be captured into the file)
+              <input type="checkbox" id="vid-voice"> <span data-i18n="vid.voice">Speak narration during render (preview only — browser speech can't be captured into the file)</span>
             </label>
-            <button id="vid-generate" class="btn btn-primary" style="align-self:flex-start;">🎬 Generate video</button>
+            <button id="vid-generate" class="btn btn-primary" style="align-self:flex-start;" data-i18n="btn.video">🎬 Generate video</button>
           </div>
           <div>
             <canvas id="vid-canvas" width="1280" height="720" class="vid-preview"></canvas>
@@ -227,43 +298,43 @@
 
     <!-- Media studio (media.js) -->
     <section id="media" class="container section">
-      <h2>Media studio</h2>
-      <p class="text-muted" style="margin-top: var(--space-1);">Season charts, shareable graphics, and exports — everything renders locally in your browser.</p>
+      <h2 data-i18n="h.media">Media studio</h2>
+      <p class="text-muted" style="margin-top: var(--space-1);" data-i18n="sub.media">Season charts, shareable graphics, and exports — everything renders locally in your browser.</p>
 
       <div class="card" style="margin-top: var(--space-4);">
-        <h3>Sponsor-track radar</h3>
-        <p class="text-muted text-sm">How often each track appears across the current open field — the meta at a glance.</p>
+        <h3 data-i18n="h.radar">Sponsor-track radar</h3>
+        <p class="text-muted text-sm" data-i18n="sub.radar">How often each track appears across the current open field — the meta at a glance.</p>
         <canvas id="radar-chart" width="640" height="420" role="img" aria-label="Radar chart of sponsor-track tag frequency across open hackathons" style="max-width:100%;height:auto;"></canvas>
         <p id="radar-note" class="text-muted text-sm"></p>
       </div>
 
       <div class="card" style="margin-top: var(--space-4);">
-        <h3>Prize pools — top open events</h3>
-        <p class="text-muted text-sm">Announced cash pools only; events without a public number are excluded.</p>
+        <h3 data-i18n="h.pools">Prize pools — top open events</h3>
+        <p class="text-muted text-sm" data-i18n="sub.pools">Announced cash pools only; events without a public number are excluded.</p>
         <canvas id="prize-chart" width="640" height="420" role="img" aria-label="Horizontal bar chart of the largest open prize pools" style="max-width:100%;height:auto;"></canvas>
       </div>
 
       <div class="card" style="margin-top: var(--space-4);">
-        <h3>Season recap</h3>
-        <p class="text-muted text-sm">Concluded events this season, oldest first.</p>
+        <h3 data-i18n="h.recap">Season recap</h3>
+        <p class="text-muted text-sm" data-i18n="sub.recap">Concluded events this season, oldest first.</p>
         <div id="timeline-out" style="overflow-x:auto;"></div>
       </div>
 
       <div class="card" style="margin-top: var(--space-4);">
-        <h3>Poster generator</h3>
+        <h3 data-i18n="h.poster">Poster generator</h3>
         <div class="vid-grid">
           <div class="flex flex-col gap-3">
             <div>
-              <label class="pred-label" for="poster-title">Project title</label>
-              <input id="poster-title" class="input" type="text" maxlength="80" placeholder="e.g. QueueLess — shelter wait-times, live">
+              <label class="pred-label" for="poster-title" data-i18n="label.posterTitle">Project title</label>
+              <input id="poster-title" class="input" type="text" maxlength="80" placeholder="e.g. QueueLess — shelter wait-times, live" data-i18n-placeholder="ph.posterTitle">
             </div>
             <div>
-              <label class="pred-label" for="poster-tagline">Tagline</label>
-              <input id="poster-tagline" class="input" type="text" maxlength="120" placeholder="One line your poster should shout">
+              <label class="pred-label" for="poster-tagline" data-i18n="label.posterTagline">Tagline</label>
+              <input id="poster-tagline" class="input" type="text" maxlength="120" placeholder="One line your poster should shout" data-i18n-placeholder="ph.posterTagline">
             </div>
             <div class="flex items-center gap-2">
-              <button id="poster-download" class="btn btn-primary" type="button">⬇ Download poster PNG</button>
-              <button id="poster-copy-caption" class="btn btn-secondary" type="button">⧉ Copy caption</button>
+              <button id="poster-download" class="btn btn-primary" type="button" data-i18n="btn.posterDl">⬇ Download poster PNG</button>
+              <button id="poster-copy-caption" class="btn btn-secondary" type="button" data-i18n="btn.posterCopy">⧉ Copy caption</button>
             </div>
             <p id="poster-caption-text" class="text-muted text-sm"></p>
           </div>
@@ -274,15 +345,15 @@
       </div>
 
       <div class="card" style="margin-top: var(--space-4);">
-        <h3>Sticker generator</h3>
+        <h3 data-i18n="h.sticker">Sticker generator</h3>
         <div class="vid-grid">
           <div class="flex flex-col gap-3">
             <div>
-              <label class="pred-label" for="sticker-name">Event or team name</label>
-              <input id="sticker-name" class="input" type="text" maxlength="40" list="sticker-events" value="HackBoard">
+              <label class="pred-label" for="sticker-name" data-i18n="label.stickerName">Event or team name</label>
+              <input id="sticker-name" class="input" type="text" maxlength="40" list="sticker-events" value="HackBoard" placeholder="e.g. HackBoard" data-i18n-placeholder="ph.stickerName">
               <datalist id="sticker-events"></datalist>
             </div>
-            <button id="sticker-download" class="btn btn-primary" type="button" style="align-self:flex-start;">⬇ Download sticker PNG</button>
+            <button id="sticker-download" class="btn btn-primary" type="button" style="align-self:flex-start;" data-i18n="btn.stickerDl">⬇ Download sticker PNG</button>
           </div>
           <div>
             <canvas id="sticker-canvas" width="600" height="600" role="img" aria-label="Round sticker preview" style="max-width:100%;height:auto;border-radius:50%;"></canvas>
@@ -291,69 +362,13 @@
       </div>
 
       <div class="card" style="margin-top: var(--space-4);">
-        <h3>Exports &amp; sharing</h3>
+        <h3 data-i18n="h.exports">Exports &amp; sharing</h3>
         <div class="flex items-center gap-2" style="flex-wrap:wrap;">
-          <button id="chat-export" class="btn btn-secondary" type="button">⬇ Export HackBot chat (.md)</button>
-          <button id="pred-card" class="btn btn-secondary" type="button">🖼 Predictor share card (.png)</button>
+          <button id="chat-export" class="btn btn-secondary" type="button" data-i18n="btn.exportChat">⬇ Export HackBot chat (.md)</button>
+          <button id="pred-card" class="btn btn-secondary" type="button" data-i18n="btn.exportCard">🖼 Predictor share card (.png)</button>
           <label class="text-sm text-muted" style="display:flex;align-items:center;gap:8px;">
-            <input type="checkbox" id="hb-sound-toggle"> Sound on/off (toolkit chimes)
+            <input type="checkbox" id="hb-sound-toggle"> <span data-i18n="label.sound">Sound on/off (toolkit chimes)</span>
           </label>
-        </div>
-      </div>
-    </section>
-
-    <!-- Stays near the hackathons -->
-    <section id="stays" class="container section">
-      <h2>Stays near the hackathons</h2>
-      <p class="text-muted" style="margin-top: var(--space-1);">Illustrative listings for the demo — not live inventory. Verify on booking sites before booking.</p>
-
-      <div class="stays-search card">
-        <div class="stays-field stays-field-dest">
-          <label class="text-xs text-muted" for="stays-hub">Destination</label>
-          <select id="stays-hub" class="input">
-            <option value="">All hubs</option>
-          </select>
-        </div>
-        <div class="stays-field">
-          <label class="text-xs text-muted" for="stays-checkin">Check-in</label>
-          <input id="stays-checkin" class="input" type="date">
-        </div>
-        <div class="stays-field">
-          <label class="text-xs text-muted" for="stays-checkout">Check-out</label>
-          <input id="stays-checkout" class="input" type="date">
-        </div>
-        <div class="stays-field stays-field-guests">
-          <label class="text-xs text-muted" for="stays-guests">Guests</label>
-          <input id="stays-guests" class="input" type="number" min="1" max="8" step="1" value="1">
-        </div>
-      </div>
-
-      <div class="stays-filters">
-        <div class="stays-chip-row" id="stays-type-chips">
-          <button id="stays-saved-chip" type="button" class="filter-chip stays-saved-chip" aria-pressed="false">♥ Saved <span class="stays-saved-count">0</span></button>
-        </div>
-        <div class="stays-price">
-          <label class="text-xs text-muted" for="stays-max-price">Max price</label>
-          <div class="stays-price-row flex items-center gap-2">
-            <input id="stays-max-price" type="range" min="40" max="400" step="10" value="400">
-            <span id="stays-price-label" class="text-sm">Any price</span>
-          </div>
-        </div>
-        <div class="stays-chip-row" id="stays-amenity-chips"></div>
-      </div>
-
-      <p class="stays-count text-sm text-muted" id="stays-count" aria-live="polite"></p>
-      <div id="stays-grid" class="stays-grid"></div>
-      <div id="stays-empty" class="card empty-state" style="display:none;">
-        <p><strong>No stays match that combo.</strong></p>
-        <p class="text-sm text-muted">Try widening the dates, price cap, or clearing a chip or two.</p>
-        <button id="stays-reset" class="btn btn-secondary btn-sm">Reset all filters</button>
-      </div>
-
-      <div id="stays-modal-backdrop" class="stay-modal-backdrop" hidden>
-        <div id="stays-modal" class="stay-modal" role="dialog" aria-modal="true" aria-labelledby="stays-modal-title">
-          <button id="stays-modal-close" class="stay-modal-close" type="button" aria-label="Close stay details">✕</button>
-          <div id="stays-modal-body"></div>
         </div>
       </div>
     </section>
@@ -361,11 +376,11 @@
     <!-- Deadline calendar -->
     <section id="calendar" class="container section">
       <div class="flex items-center justify-between gap-2">
-        <h2 style="margin:0;">Deadline calendar</h2>
+        <h2 style="margin:0;" data-i18n="h.calendar">Deadline calendar</h2>
         <div class="flex items-center gap-2">
-          <button id="cal-prev" class="btn btn-ghost btn-sm" aria-label="Previous month">‹</button>
+          <button id="cal-prev" class="btn btn-ghost btn-sm" aria-label="Previous month" data-i18n-aria="aria.prevMonth">‹</button>
           <strong id="calendar-title"></strong>
-          <button id="cal-next" class="btn btn-ghost btn-sm" aria-label="Next month">›</button>
+          <button id="cal-next" class="btn btn-ghost btn-sm" aria-label="Next month" data-i18n-aria="aria.nextMonth">›</button>
         </div>
       </div>
       <p id="calendar-hint" class="text-muted text-sm"></p>
@@ -374,112 +389,112 @@
 
     <!-- Team-matching board (local) -->
     <section id="team" class="container section">
-      <h2>Team board</h2>
-      <p class="text-muted" style="margin-top: var(--space-1);">Looking for a crew, or a crew looking for you? Post it here. The board lives on this device only — nothing is shared anywhere.</p>
+      <h2 data-i18n="h.team">Team board</h2>
+      <p class="text-muted" style="margin-top: var(--space-1);" data-i18n="sub.team">Looking for a crew, or a crew looking for you? Post it here. The board lives on this device only — nothing is shared anywhere.</p>
       <form id="team-form" class="card tool-prefs" style="gap: var(--space-2);">
         <div class="tool-fields">
-          <input id="team-name" class="input" type="text" placeholder="Your name" maxlength="40" required>
+          <input id="team-name" class="input" type="text" placeholder="Your name" maxlength="40" required data-i18n-placeholder="ph.teamName">
           <select id="team-event" class="input">
-            <option value="">Any event</option>
+            <option value="" data-i18n="opt.anyEvent">Any event</option>
           </select>
-          <input id="team-looking" class="input" type="text" placeholder="Looking for… e.g. a backend dev for agents track" maxlength="120" required>
+          <input id="team-looking" class="input" type="text" placeholder="Looking for… e.g. a backend dev for agents track" maxlength="120" required data-i18n-placeholder="ph.teamLooking">
         </div>
-        <button type="submit" class="btn btn-primary" style="align-self:flex-start;">Post to the board</button>
+        <button type="submit" class="btn btn-primary" style="align-self:flex-start;" data-i18n="btn.post">Post to the board</button>
       </form>
       <div id="team-list" class="tool-grid" style="margin-top: var(--space-4);"></div>
     </section>
 
     <!-- Builder Toolkit -->
     <section id="toolkit" class="container section">
-      <h2>Builder toolkit</h2>
-      <p class="text-muted" style="margin-top: var(--space-1);">Small, fast, friendly tools for the weekend — everything runs right here in your browser, and your streaks, badges, and preferences stay on your device.</p>
+      <h2 data-i18n="h.toolkit">Builder toolkit</h2>
+      <p class="text-muted" style="margin-top: var(--space-1);" data-i18n="sub.toolkit">Small, fast, friendly tools for the weekend — everything runs right here in your browser, and your streaks, badges, and preferences stay on your device.</p>
       <div class="tool-grid">
         <div class="card tool-card">
-          <h3>💡 Idea generator</h3>
-          <p class="text-muted text-sm">Random but plausible: a track, a user, a twist.</p>
-          <button id="idea-gen" class="btn btn-primary">Generate an idea</button>
+          <h3 data-i18n="tool.idea">💡 Idea generator</h3>
+          <p class="text-muted text-sm" data-i18n="tool.ideaSub">Random but plausible: a track, a user, a twist.</p>
+          <button id="idea-gen" class="btn btn-primary" data-i18n="btn.idea">Generate an idea</button>
           <div id="idea-out" class="tool-out"></div>
         </div>
         <div class="card tool-card">
-          <h3>🚀 Team-name generator</h3>
-          <p class="text-muted text-sm">Because DevTeam42 lost its charm.</p>
-          <button id="teamname-gen" class="btn btn-secondary">Name my team</button>
+          <h3 data-i18n="tool.teamname">🚀 Team-name generator</h3>
+          <p class="text-muted text-sm" data-i18n="tool.teamnameSub">Because DevTeam42 lost its charm.</p>
+          <button id="teamname-gen" class="btn btn-secondary" data-i18n="btn.teamname">Name my team</button>
           <div id="teamname-out" class="tool-out"></div>
         </div>
         <div class="card tool-card">
-          <h3>✅ Demo-day checklist</h3>
-          <p class="text-muted text-sm">Six things that save finals, shuffled.</p>
-          <button id="checklist-gen" class="btn btn-secondary">Deal me a checklist</button>
+          <h3 data-i18n="tool.checklist">✅ Demo-day checklist</h3>
+          <p class="text-muted text-sm" data-i18n="tool.checklistSub">Six things that save finals, shuffled.</p>
+          <button id="checklist-gen" class="btn btn-secondary" data-i18n="btn.checklist">Deal me a checklist</button>
           <div id="checklist-out" class="tool-out"></div>
         </div>
         <div class="card tool-card">
-          <h3>🔨 Pomodoro build timer</h3>
+          <h3 data-i18n="tool.pomo">🔨 Pomodoro build timer</h3>
           <div id="pomo-display" class="tool-display" aria-live="polite">🔨 Build 25:00</div>
           <div class="vid-actions">
-            <button id="pomo-toggle" class="btn btn-primary">▶ Start</button>
-            <button id="pomo-reset" class="btn btn-ghost btn-sm">Reset</button>
+            <button id="pomo-toggle" class="btn btn-primary" data-i18n="btn.start">▶ Start</button>
+            <button id="pomo-reset" class="btn btn-ghost btn-sm" data-i18n="btn.reset">Reset</button>
           </div>
         </div>
         <div class="card tool-card">
-          <h3>🎤 Pitch rehearsal timer</h3>
-          <p class="text-muted text-sm">90 seconds, warning at 10. Practice like it's finals.</p>
+          <h3 data-i18n="tool.pitchtimer">🎤 Pitch rehearsal timer</h3>
+          <p class="text-muted text-sm" data-i18n="tool.pitchSub">90 seconds, warning at 10. Practice like it's finals.</p>
           <div id="pitchtimer-display" class="tool-display" aria-live="polite">🎤 90s left</div>
-          <button id="pitchtimer-start" class="btn btn-primary">Start rehearsal</button>
+          <button id="pitchtimer-start" class="btn btn-primary" data-i18n="btn.rehearsal">Start rehearsal</button>
         </div>
         <div class="card tool-card">
-          <h3>🎰 Event roulette</h3>
-          <p class="text-muted text-sm">Can't pick? Let the board pick for you.</p>
-          <button id="roulette-btn" class="btn btn-secondary">Surprise me</button>
+          <h3 data-i18n="tool.roulette">🎰 Event roulette</h3>
+          <p class="text-muted text-sm" data-i18n="tool.rouletteSub">Can't pick? Let the board pick for you.</p>
+          <button id="roulette-btn" class="btn btn-secondary" data-i18n="btn.surprise">Surprise me</button>
           <div id="roulette-out" class="tool-out"></div>
         </div>
         <div class="card tool-card">
-          <h3>💵 Time-value calculator</h3>
-          <p class="text-muted text-sm">Prize pool ÷ (hours × team) — what you're really earning.</p>
+          <h3 data-i18n="tool.tv">💵 Time-value calculator</h3>
+          <p class="text-muted text-sm" data-i18n="tool.tvSub">Prize pool ÷ (hours × team) — what you're really earning.</p>
           <div class="tool-fields">
-            <input id="tv-prize" class="input" type="number" placeholder="Prize pool $" min="0">
-            <input id="tv-hours" class="input" type="number" placeholder="Hours each" min="1">
-            <input id="tv-team" class="input" type="number" placeholder="Team size" min="1" value="4">
+            <input id="tv-prize" class="input" type="number" placeholder="Prize pool $" min="0" data-i18n-placeholder="ph.tvPrize">
+            <input id="tv-hours" class="input" type="number" placeholder="Hours each" min="1" data-i18n-placeholder="ph.tvHours">
+            <input id="tv-team" class="input" type="number" placeholder="Team size" min="1" value="4" data-i18n-placeholder="ph.tvTeam">
           </div>
-          <button id="tv-calc" class="btn btn-secondary">Do the math</button>
+          <button id="tv-calc" class="btn btn-secondary" data-i18n="btn.tvCalc">Do the math</button>
           <div id="tv-out" class="tool-out"></div>
         </div>
         <div class="card tool-card">
-          <h3>📦 Data &amp; digest exports</h3>
-          <p class="text-muted text-sm">Take the board with you.</p>
+          <h3 data-i18n="tool.exports">📦 Data &amp; digest exports</h3>
+          <p class="text-muted text-sm" data-i18n="tool.exportsSub">Take the board with you.</p>
           <div class="vid-actions">
-            <button id="export-md" class="btn btn-secondary">Weekly digest (.md)</button>
-            <button id="export-json" class="btn btn-secondary">All data (.json)</button>
-            <button id="export-csv" class="btn btn-secondary">Events (.csv)</button>
+            <button id="export-md" class="btn btn-secondary" data-i18n="btn.digest">Weekly digest (.md)</button>
+            <button id="export-json" class="btn btn-secondary" data-i18n="btn.allData">All data (.json)</button>
+            <button id="export-csv" class="btn btn-secondary" data-i18n="btn.eventsCsv">Events (.csv)</button>
           </div>
         </div>
       </div>
       <div class="card tool-prefs">
         <div class="tool-pref-row">
           <div class="flex items-center gap-2">
-            <span class="text-muted text-sm">Text size</span>
+            <span class="text-muted text-sm" data-i18n="label.textSize">Text size</span>
             <button id="font-sm" class="btn btn-ghost btn-sm pref-btn">S</button>
             <button id="font-md" class="btn btn-ghost btn-sm pref-btn">M</button>
             <button id="font-lg" class="btn btn-ghost btn-sm pref-btn">L</button>
           </div>
           <div class="flex items-center gap-2">
-            <button id="pref-motion" class="btn btn-ghost btn-sm pref-btn" aria-pressed="false">🚫 Reduced motion</button>
-            <button id="pref-contrast" class="btn btn-ghost btn-sm pref-btn" aria-pressed="false">🌗 High contrast</button>
+            <button id="pref-motion" class="btn btn-ghost btn-sm pref-btn" aria-pressed="false" data-i18n="btn.reducedMotion">🚫 Reduced motion</button>
+            <button id="pref-contrast" class="btn btn-ghost btn-sm pref-btn" aria-pressed="false" data-i18n="btn.highContrast">🌗 High contrast</button>
           </div>
           <span id="streak-chip" class="badge badge-info" aria-live="polite"></span>
         </div>
-        <div id="badge-strip" class="badge-strip" aria-label="Your achievement badges"></div>
-        <p class="text-muted text-sm" style="margin-top: var(--space-2);">Tip: press <kbd>/</kbd> anywhere to jump to the event filters. There's also a hidden judge mode — the classics never die.</p>
+        <div id="badge-strip" class="badge-strip" aria-label="Your achievement badges" data-i18n-aria="aria.badges"></div>
+        <p class="text-muted text-sm" style="margin-top: var(--space-2);"><span data-i18n="toolkit.tip1">Tip: press</span> <kbd>/</kbd> <span data-i18n="toolkit.tip2">anywhere to jump to the event filters. There's also a hidden judge mode — the classics never die.</span></p>
       </div>
     </section>
 
     <!-- Founders & the VC lens -->
     <section id="founders" class="container section">
-      <h2>Founders &amp; the VC lens</h2>
-      <p class="text-muted" style="margin-top: var(--space-1);">Real stories from tracked winner data, told the way you'd tell a friend — plus what the money actually asks for. Every portrait here is an AI illustration and every script is composed from tracked public info; where a persona is fictional, it says so on the card.</p>
+      <h2 data-i18n="h.founders">Founders &amp; the VC lens</h2>
+      <p class="text-muted" style="margin-top: var(--space-1);" data-i18n="sub.founders">Real stories from tracked winner data, told the way you'd tell a friend — plus what the money actually asks for. Every portrait here is an AI illustration and every script is composed from tracked public info; where a persona is fictional, it says so on the card.</p>
       <div id="founder-cards" class="founder-grid"></div>
       <div class="card predictor-card" style="margin-top: var(--space-4);">
-        <h3>The five questions every VC asks</h3>
-        <p class="text-muted" style="margin: var(--space-1) 0 var(--space-3);">Survive these five and you've survived most first meetings. The <a href="#pitch">pitch generator</a> gives each one a timed slot.</p>
+        <h3 data-i18n="h.vc">The five questions every VC asks</h3>
+        <p class="text-muted" style="margin: var(--space-1) 0 var(--space-3);"><span data-i18n="sub.vc">Survive these five and you've survived most first meetings. The</span> <a href="#pitch">pitch generator</a><span data-i18n="sub.vc2"> gives each one a timed slot.</span></p>
         <ol class="vc-list">
           <li><strong>“Show me the week someone paid you.”</strong> Traction isn't a logo slide — it's a week of real usage or revenue.</li>
           <li><strong>“Why is this possible today that wasn't last year?”</strong> If nothing changed, the timing story is thin.</li>
@@ -492,50 +507,50 @@
 
     <!-- Investor pitch script -->
     <section id="pitch" class="container section">
-      <h2>Investor pitch-script generator</h2>
-      <p class="text-muted" style="margin-top: var(--space-1);">Fill in what you have — blank fields become bracketed prompts you can answer in the room. The output is a timed ~90-second script with stage directions, downloadable as markdown, and one click sends it to the demo-video generator below.</p>
+      <h2 data-i18n="h.pitch">Investor pitch-script generator</h2>
+      <p class="text-muted" style="margin-top: var(--space-1);" data-i18n="sub.pitch">Fill in what you have — blank fields become bracketed prompts you can answer in the room. The output is a timed ~90-second script with stage directions, downloadable as markdown, and one click sends it to the demo-video generator below.</p>
       <div class="card predictor-card">
         <div class="vid-grid">
           <div class="flex flex-col gap-3">
             <div>
-              <label class="pred-label" for="pitch-name">Project name</label>
-              <input id="pitch-name" class="input" type="text" placeholder="e.g. QueueLess">
+              <label class="pred-label" for="pitch-name" data-i18n="label.pName">Project name</label>
+              <input id="pitch-name" class="input" type="text" placeholder="e.g. QueueLess" data-i18n-placeholder="ph.pName">
             </div>
             <div>
-              <label class="pred-label" for="pitch-oneliner">One-liner</label>
-              <input id="pitch-oneliner" class="input" type="text" placeholder="the fastest way for X to do Y">
+              <label class="pred-label" for="pitch-oneliner" data-i18n="label.pOneliner">One-liner</label>
+              <input id="pitch-oneliner" class="input" type="text" placeholder="the fastest way for X to do Y" data-i18n-placeholder="ph.pOneliner">
             </div>
             <div>
-              <label class="pred-label" for="pitch-problem">The problem</label>
-              <textarea id="pitch-problem" class="input" rows="2" placeholder="Who hurts, how often, and what it costs them today"></textarea>
+              <label class="pred-label" for="pitch-problem" data-i18n="label.pProblem">The problem</label>
+              <textarea id="pitch-problem" class="input" rows="2" placeholder="Who hurts, how often, and what it costs them today" data-i18n-placeholder="ph.pProblem"></textarea>
             </div>
             <div>
-              <label class="pred-label" for="pitch-solution">The solution</label>
-              <textarea id="pitch-solution" class="input" rows="2" placeholder="The mechanism — how it removes the pain"></textarea>
+              <label class="pred-label" for="pitch-solution" data-i18n="label.pSolution">The solution</label>
+              <textarea id="pitch-solution" class="input" rows="2" placeholder="The mechanism — how it removes the pain" data-i18n-placeholder="ph.pSolution"></textarea>
             </div>
             <div>
-              <label class="pred-label" for="pitch-whynow">Why now</label>
-              <input id="pitch-whynow" class="input" type="text" placeholder="What changed recently that makes this possible today">
+              <label class="pred-label" for="pitch-whynow" data-i18n="label.pWhynow">Why now</label>
+              <input id="pitch-whynow" class="input" type="text" placeholder="What changed recently that makes this possible today" data-i18n-placeholder="ph.pWhynow">
             </div>
           </div>
           <div class="flex flex-col gap-3">
             <div>
-              <label class="pred-label" for="pitch-market">Market &amp; buyers</label>
-              <input id="pitch-market" class="input" type="text" placeholder="Who pays, how many, at what price">
+              <label class="pred-label" for="pitch-market" data-i18n="label.pMarket">Market &amp; buyers</label>
+              <input id="pitch-market" class="input" type="text" placeholder="Who pays, how many, at what price" data-i18n-placeholder="ph.pMarket">
             </div>
             <div>
-              <label class="pred-label" for="pitch-traction">Traction</label>
-              <textarea id="pitch-traction" class="input" rows="2" placeholder="Users, pilots, revenue, waitlist — numbers, not adjectives"></textarea>
+              <label class="pred-label" for="pitch-traction" data-i18n="label.pTraction">Traction</label>
+              <textarea id="pitch-traction" class="input" rows="2" placeholder="Users, pilots, revenue, waitlist — numbers, not adjectives" data-i18n-placeholder="ph.pTraction"></textarea>
             </div>
             <div>
-              <label class="pred-label" for="pitch-team">Team</label>
-              <input id="pitch-team" class="input" type="text" placeholder="Why this team wins it">
+              <label class="pred-label" for="pitch-team" data-i18n="label.pTeam">Team</label>
+              <input id="pitch-team" class="input" type="text" placeholder="Why this team wins it" data-i18n-placeholder="ph.pTeam">
             </div>
             <div>
-              <label class="pred-label" for="pitch-ask">The ask</label>
-              <textarea id="pitch-ask" class="input" rows="2" placeholder="Specific amount or intro, and what it buys"></textarea>
+              <label class="pred-label" for="pitch-ask" data-i18n="label.pAsk">The ask</label>
+              <textarea id="pitch-ask" class="input" rows="2" placeholder="Specific amount or intro, and what it buys" data-i18n-placeholder="ph.pAsk"></textarea>
             </div>
-            <button id="pitch-generate" class="btn btn-primary" style="align-self:flex-start;">📝 Generate pitch script</button>
+            <button id="pitch-generate" class="btn btn-primary" style="align-self:flex-start;" data-i18n="btn.pitch">📝 Generate pitch script</button>
           </div>
         </div>
         <div id="pitch-result" style="margin-top: var(--space-4);"></div>
@@ -544,7 +559,8 @@
 
   <footer class="site-footer">
     <div class="container text-muted text-sm">
-      Data tracked Oct 30, 2026 from ETHGlobal event pages, Devpost listings, DevGrants Daily, and organizer sites. Always verify dates and prize totals on the event page before booking travel.
+      <span data-i18n="footer.text">Data tracked Oct 30, 2026 from ETHGlobal event pages, Devpost listings, DevGrants Daily, and organizer sites. Always verify dates and prize totals on the event page before booking travel.</span>
+      <p class="text-muted text-sm" style="margin-top: var(--space-2);" data-i18n="lang.hint">Interface text is translated — event and stay listings stay in English.</p>
     </div>
   </footer>
 
@@ -570,5 +586,7 @@
   </script>
   <script src="stays-data.js"></script>
   <script src="stays.js"></script>
+  <script src="koi.js"></script>
+  <script src="i18n.js"></script>
 </body>
 </html>

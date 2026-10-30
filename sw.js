@@ -7,7 +7,7 @@
  * Classic worker — no modules, no build step.
  */
 
-const CACHE_VERSION = "hackboard-v1";
+const CACHE_VERSION = "hackboard-v2";
 
 /* Same-origin core shell: cache-first. "./" covers navigations to the
  * directory root so the board itself opens offline. */
