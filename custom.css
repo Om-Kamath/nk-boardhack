@@ -715,3 +715,10 @@ html.high-contrast { --text-secondary: var(--text-primary); --text-tertiary: var
   z-index: 1002;
 }
 #hb-toast.show { opacity: 1; transform: translate(-50%, 0); }
+.reg-closed {
+  color: var(--text-secondary);
+  background: var(--surface-secondary);
+  border-radius: var(--radius-sm);
+  padding: var(--space-1) var(--space-2);
+  font-weight: 500;
+}

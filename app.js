@@ -215,15 +215,18 @@
         countdownLabel(ev.deadline) + "</span>"
       : "";
 
-    const loc = ev.location
+    const loc = ev.format === "irl"
       ? '<span class="event-meta">📍 ' + ev.location + " · " + fmtRange(ev.dates, ev.deadline) + "</span>"
-      : '<span class="event-meta">🌐 Online · ' + fmtRange(ev.dates, ev.deadline) + "</span>";
+      : '<span class="event-meta">' + (ev.format === "hybrid" ? "🔀 Hybrid" : "🌐 Online") + " · " + fmtRange(ev.dates, ev.deadline) + "</span>";
 
     const hostLine = ev.host
       ? '<div class="event-meta host-line">🏡 Hosted by ' + escapeHtml(ev.host) + (ev.venue ? " · " + escapeHtml(ev.venue) : "") + "</div>"
       : "";
     const hostIntel = ev.hostInsight
       ? '<details class="host-details"><summary>Host intel</summary><p class="host-insight">' + escapeHtml(ev.hostInsight) + "</p></details>"
+      : "";
+    const regNote = ev.regClosed
+      ? '<div class="event-meta reg-closed">🚫 ' + escapeHtml(ev.regNote || "Registration closed — check the event page.") + "</div>"
       : "";
     const rsvp = opts.showDue !== false && ev.format === "irl" ? rsvpRow(ev) : "";
     const w = watchFor(ev.id);
@@ -239,6 +242,7 @@
       loc +
       hostLine +
       '<p class="event-desc">' + ev.blurb + "</p>" +
+      regNote +
       hostIntel +
       rsvp +
       '<div class="event-meta">' +
@@ -322,7 +326,7 @@
     const rows = [
       ["Deadline", function (e) { return fmtDate(e.deadline); }],
       ["Dates", function (e) { return fmtRange(e.dates, e.deadline); }],
-      ["Format", function (e) { return e.format === "irl" ? (e.location || "IRL") : "Online"; }],
+      ["Format", function (e) { return e.format === "irl" ? (e.location || "IRL") : (e.format === "hybrid" ? "Hybrid" : "Online"); }],
       ["Prize", function (e) { return e.prize; }],
       ["Tracks", function (e) { return e.tags.join(", "); }],
       ["", function (e) { return '<a href="' + e.url + '" target="_blank" rel="noopener">Register ↗</a>'; }]
@@ -361,6 +365,7 @@
     { id: "all", label: "All", test: function () { return true; } },
     { id: "online", label: "Online", test: function (ev) { return ev.format === "online"; } },
     { id: "irl", label: "IRL", test: function (ev) { return ev.format === "irl"; } },
+    { id: "hybrid", label: "Hybrid", test: function (ev) { return ev.format === "hybrid"; } },
     { id: "nyc", label: "NYC", test: function (ev) { return ev.hub === "NYC"; } },
     { id: "sf", label: "SF", test: function (ev) { return ev.hub === "SF"; } },
     { id: "sanjose", label: "San Jose", test: function (ev) { return ev.hub === "San Jose"; } },

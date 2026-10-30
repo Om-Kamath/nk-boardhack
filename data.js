@@ -8,24 +8,24 @@ const HACKBOARD_DATA = {
     {
       id: "vultr-agent-rush",
       name: "Vultr Agent Rush",
-      format: "online",
+      format: "hybrid",
       dates: "2026-11-03",
       deadline: "2026-11-08",
       prize: "$9,000 + $5,000 Vultr credits",
       tags: ["agents", "devtools", "ai"],
-      url: "https://devgrantsdaily.com/type/hackathon/",
+      url: "https://community.vultr.com/e/vultr-agent-rush-hackathon",
       blurb: "Build autonomous agents on Vultr's cloud stack. Short build window — plan for a scoped, deployable demo."
     },
     {
       id: "dsh-hacks-v2",
       name: "DSH Hacks V2",
       format: "online",
-      dates: "2026-11-01",
-      deadline: "2026-11-07",
-      prize: "$42,234",
+      dates: "2026-06-24",
+      deadline: "2026-11-14",
+      prize: "5 non-cash prizes",
       tags: ["ai", "health", "students"],
-      url: "https://devpost.com/c/artificial-intelligence",
-      blurb: "AI-for-healthcare themed online hack. Large prize pool for a young event — medical-data demos score well here."
+      url: "https://dsh-hacks-v2.devpost.com/",
+      blurb: "AI-for-healthcare themed online hack. Prizes are non-cash (five total) — medical-data demos score well here."
     },
     {
       id: "hackrpi-2026",
@@ -33,7 +33,7 @@ const HACKBOARD_DATA = {
       format: "irl",
       location: "Troy, NY",
       dates: "2026-11-07",
-      deadline: "2026-11-07",
+      deadline: "2026-11-08",
       prize: "$3,550",
       tags: ["students", "irl", "beginner"],
       url: "https://hackrpi-2026.devpost.com/",
@@ -56,9 +56,9 @@ const HACKBOARD_DATA = {
       name: "ETHGlobal Mumbai",
       format: "irl",
       location: "Mumbai, India",
-      dates: "2026-11-06",
-      deadline: "2026-11-06",
-      prize: "Sponsor pool (TBD on event page)",
+      dates: "2026-11-05",
+      deadline: "2026-11-07",
+      prize: "Sponsor pool (TBD on event page) (unverified)",
       tags: ["web3", "irl"],
       url: "https://ethglobal.com/events/mumbai",
       blurb: "ETHGlobal's India flagship. Prize money lives in sponsor tracks — DeFi, agentic payments, and infra historically pay best."
@@ -91,21 +91,21 @@ const HACKBOARD_DATA = {
       format: "online",
       dates: "2026-10-18",
       deadline: "2026-11-15",
-      prize: "$51,000",
+      prize: "$46,000 cash",
       tags: ["ai", "hardware"],
       url: "https://ugreenhackathon.devpost.com/",
       blurb: "AI on local NAS hardware — privacy-first, self-hosted ML. Unusual track, meaning less demo saturation."
     },
     {
       id: "code-for-india",
-      name: "Code for India",
+      name: "Code for a Billion (Bharat Agentic-AI Hackathon)",
       format: "online",
-      dates: "2026-10-20",
+      dates: "2026-08-15",
       deadline: "2026-11-15",
       prize: "₹18 lakh (~$20,000)",
       tags: ["agents", "social", "ai"],
-      url: "https://devgrantsdaily.com/type/hackathon/",
-      blurb: "Open-source agent builds for Indian public-sector problems. Judges favor deployable civic tooling over slideware."
+      url: "https://codeforindia.org/hackathon",
+      blurb: "Agentic-AI builds for Indian public-health challenges, running since Aug 15. Judges favor deployable civic tooling over slideware."
     },
     {
       id: "cutie-hack-2026",
@@ -114,9 +114,9 @@ const HACKBOARD_DATA = {
       location: "Riverside, CA",
       dates: "2026-11-21",
       deadline: "2026-11-21",
-      prize: "Prizes per track",
+      prize: "Prizes per track (unverified)",
       tags: ["students", "beginner", "irl"],
-      url: "https://cutie-hack-2026.devpost.com/",
+      url: "https://cutiehack.com/",
       blurb: "UC Riverside's 12-hour beginner hackathon. If this is your first event, start here."
     },
     {
@@ -157,9 +157,11 @@ const HACKBOARD_DATA = {
       hostInsight: "Twelve years running and still student-governed. Companies bring real energy and climate challenges and recruit from the finals — a genuinely strong room for climate-tech careers.",
       dates: "2026-11-06",
       deadline: "2026-11-08",
-      prize: "Prizes per challenge",
+      prize: "Prizes per challenge (unverified)",
       tags: ["irl", "students", "climate"],
-      url: "https://www.mitenergyhack.org/faqs",
+      url: "https://luma.com/y097td45",
+      regClosed: true,
+      regNote: "Registration closed Oct 16, 2026 — waitlist only.",
       blurb: "Three-day student hackathon where companies pose real energy and climate challenges; top team per challenge advances to finals."
     },
     {
@@ -175,7 +177,9 @@ const HACKBOARD_DATA = {
       deadline: "2026-11-08",
       prize: "$18,000",
       tags: ["irl", "defense", "hardware"],
-      url: "https://capd.mit.edu/events/2026/11/06/code-metal-hackathon-forge-2026-sponsored-by-ussocom/",
+      url: "https://codemetal.ai/forge-hackathon",
+      regClosed: true,
+      regNote: "Applications closed Oct 5, 2026 (rolling).",
       blurb: "Rapid-prototyping hackathon targeting MIT engineers and technical builders — build for the mission, $18K on the line."
     },
     {
@@ -191,7 +195,7 @@ const HACKBOARD_DATA = {
       deadline: "2026-11-08",
       prize: "$6,000 cash",
       tags: ["irl", "ai", "hardware"],
-      url: "https://ushackathons.com/events/hackstorm-3-0-sense-think-and-act",
+      url: "https://luma.com/568fqhic",
       blurb: "Can a curated group of builders ship real AI hardware in 48 hours? Third-time-out event with $6K in cash prizes."
     },
     {
@@ -205,7 +209,7 @@ const HACKBOARD_DATA = {
       hostInsight: "Public AI-automation services company running this partly as a community/recruiting play — optional welcome party and happy hour the night before (Fri Nov 13). One day, so scope tight.",
       dates: "2026-11-14",
       deadline: "2026-11-14",
-      prize: "See event page",
+      prize: "$8,750 ($5,000/$2,500/$1,250)",
       tags: ["irl", "ai"],
       url: "https://innodata.com/events/innodata-hackathon-2026/",
       blurb: "Full-day in-person hackathon: real technical challenges, working prototypes, 9am–5pm at St. John's Manhattan."
@@ -221,7 +225,7 @@ const HACKBOARD_DATA = {
       hostInsight: "GISMO is NYC's regional geospatial professional network — an unusually mixed crowd of planners, data scientists and civic builders, not the usual pure-dev field.",
       dates: "2026-11-14",
       deadline: "2026-11-14",
-      prize: "See event page",
+      prize: "See event page (unverified)",
       tags: ["irl", "ai", "geoai"],
       url: "https://www.gismonyc.org/geoai-hackathon-2026.html",
       blurb: "One-day GeoAI sprint: create AI-ready geospatial data and solve real-world mapping challenges."
@@ -237,7 +241,7 @@ const HACKBOARD_DATA = {
       hostInsight: "First public hackathon from System, the company behind the Public Graph — an open map of quantitative relationships drawn from peer-reviewed research. Small, first-time event; challenge questions set with partner organizations.",
       dates: "2026-11-13",
       deadline: "2026-11-14",
-      prize: "See event page",
+      prize: "$7,500 cash",
       tags: ["irl", "open-data", "ai"],
       url: "https://hack123.henryht.sh/en/h/system-public-challenge-2026",
       blurb: "Teams of 2–7 build on the System Public Graph plus open data, across three categories, at System's NYC HQ."
@@ -253,7 +257,7 @@ const HACKBOARD_DATA = {
       hostInsight: "One of New England's largest student hackathons, with hands-on workshops and dedicated mentors aimed at beginners — a reliable first-IRL-event choice.",
       dates: "2026-11-13",
       deadline: "2026-11-15",
-      prize: "See event page",
+      prize: "See event page (unverified)",
       tags: ["irl", "students", "beginner"],
       url: "https://www.cics.umass.edu/events/hackumass-xiv",
       blurb: "36 hours, all experience levels, dedicated mentorship — the classic big-campus hackathon experience."
@@ -269,10 +273,10 @@ const HACKBOARD_DATA = {
       hostInsight: "Curated by application — only 40 builders admitted, applications close Friday Nov 6 at 11:59pm. A small field means unusually good judge access; apply early.",
       dates: "2026-11-12",
       deadline: "2026-11-15",
-      prize: "See event page",
+      prize: "$13,500 ($10,000/$2,500/$1,000)",
       tags: ["irl", "ai"],
       url: "https://scion.events/300-hackathon",
-      blurb: "62 hours, 40 builders, one building in Boston — building starts 9pm Nov 12, demos Nov 14–15."
+      blurb: "62 hours, 40 builders, one building in Boston — building starts 9pm Nov 12, demos Nov 14–15. Open to Northeastern students only."
     },
     {
       id: "space-apps-seattle",
@@ -316,8 +320,8 @@ const HACKBOARD_DATA = {
       venue: "AWS Builder Loft, 525 Market St (2nd floor)",
       hostInsight: "HackerSquad is a recurring SF buildathon organizer that regularly books the AWS Builder Loft. Week-long format: in-person kickoff Nov 13, then an online build week — remote participation possible.",
       dates: "2026-11-13",
-      deadline: "2026-11-13",
-      prize: "See event page",
+      deadline: "2026-11-20",
+      prize: "See event page (unverified)",
       tags: ["irl", "agents", "ai"],
       url: "https://luma.com/band-ai-hacks-nov13-2026",
       blurb: "\"All agents, now in sync\" — kickoff buildathon at the AWS Builder Loft, then a week-long remote build."
@@ -333,7 +337,7 @@ const HACKBOARD_DATA = {
       hostInsight: "Cerebral Valley runs NYC's AI social graph, and the first official hackathon featuring Gemini 3 — DeepMind engineers on site. Recruitment-adjacent by design; the room matters as much as the prizes.",
       dates: "2026-11-22",
       deadline: "2026-11-23",
-      prize: "See event page",
+      prize: "$6,000+ cash + $150K Gemini credits",
       tags: ["irl", "ai", "agents"],
       url: "https://cerebralvalley.ai/e/aie-code-agents-nyc",
       blurb: "Work on codebase context optimization, reasoning RL, and collaborative code-gen tooling — with the DeepMind team in the building."
@@ -349,7 +353,7 @@ const HACKBOARD_DATA = {
       hostInsight: "Boston's long-running student hackathon; 2026 is transit-themed (\"Boston Bound\") with tracks like Transit Gamification and Boundless Boston — civic-data builds fit naturally.",
       dates: "2026-11-21",
       deadline: "2026-11-22",
-      prize: "See event page",
+      prize: "See event page (unverified)",
       tags: ["irl", "students", "civic"],
       url: "https://www.bostonhacks.org/",
       blurb: "Boston-student classic with transit-themed tracks, workshops, and a full two-day schedule."
@@ -365,7 +369,7 @@ const HACKBOARD_DATA = {
       hostInsight: "Google's own curated-builder event — teams are hand-picked and the day is structured around Google's agentic AI and data stack. Getting selected is the hard part; the Cloud/DeepMind adjacency is the real prize.",
       dates: "2026-12-08",
       deadline: "2026-12-08",
-      prize: "See event page",
+      prize: "No cash pool — Credly badge + Phase II AI Arena advancement",
       tags: ["irl", "ai", "agents"],
       url: "https://cloud.google.com/events/agents-for-impact-nyc",
       blurb: "One-day sprint at Pier 57: curated teams tackle food equity, public health, and emergency-evacuation challenges with Google's agentic tools."
@@ -381,7 +385,7 @@ const HACKBOARD_DATA = {
       hostInsight: "tokens& runs free community AI events in SF. Robotics-and-dexterity focus — hardware-adjacent builders are the ones who stand out here.",
       dates: "2026-11-28",
       deadline: "2026-11-28",
-      prize: "See host page",
+      prize: "See host page (unverified)",
       tags: ["irl", "ai", "hardware"],
       url: "https://foundercal.com/events/physical-ai-hack-2026-11-28",
       blurb: "One-day physical-AI build: machines that handle objects with dexterity, touch, and whole-body coordination. Free entry."
@@ -485,7 +489,7 @@ const HACKBOARD_DATA = {
   news: [
     { date: "2026-10-30", text: "Kiroween opened today — $100,000 pool, five-week build window, closes Dec 4. Biggest prize in this season's data." },
     { date: "2026-10-30", text: "Qloo Agentic closed today at $25K. Winners expected within ~2 weeks." },
-    { date: "2026-11-06", text: "ETHGlobal Mumbai kicks off Nov 6 — last big IRL web3 event of the year." },
+    { date: "2026-11-06", text: "ETHGlobal Mumbai kicks off Nov 5 — last big IRL web3 event of the year." },
     { date: "2026-11-07", text: "Campus weekend double-header: HackRPI (Troy, NY) and Redhawk Builds (Oxford, OH), both Nov 7–8." },
     { date: "2026-11-12", text: "PayPal AI Hackathon closes Nov 12 — $67,500 and the season's strongest fintech-agent signal." },
     { date: "2026-11-13", text: "Agent-Native winners announced Nov 13; CrowdStrike AgentWorks winners already out early Nov." }
