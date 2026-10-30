@@ -3,6 +3,11 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="HackBoard — every live hackathon worth your weekend, winner intelligence, and honest odds on what takes the top prize.">
+  <meta property="og:title" content="HackBoard — Find hackathons. Build what wins.">
+  <meta property="og:description" content="A curated board of live hackathons, recent winners, and a transparent win predictor. Built for builders.">
+  <meta property="og:type" content="website">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Ctext y='19' font-size='19'%3E%E2%9A%A1%3C/text%3E%3C/svg%3E">
   <title>HackBoard — Hackathons, Prizes &amp; Winner Intelligence</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -17,6 +22,7 @@
       <nav class="flex items-center gap-4">
         <a href="#hackathons" class="nav-link">Hackathons</a>
         <a href="#winners" class="nav-link">Winners</a>
+        <a href="#founders" class="nav-link">Founders</a>
         <a href="#entrances" class="nav-link">Entrance finder</a>
         <a href="#predictor" class="nav-link">Win Predictor</a>
         <button class="theme-toggle btn btn-ghost btn-sm" aria-label="Toggle theme">
@@ -33,7 +39,7 @@
       <div class="container">
         <span class="pill">Updated Oct 30, 2026</span>
         <h1>Find hackathons. <span class="grad-text">Build what wins.</span></h1>
-        <p class="hero-sub">A curated board of live and upcoming hackathons with real prize pools, recent winners, and a data-backed read on which project types are taking home the top prize.</p>
+        <p class="hero-sub">Hey builder — this is your cheat code. Every live hackathon worth your weekend, what last season's winners actually did, and an honest read on your odds. Grab a filter, find your crew, and go build something.</p>
         <div class="hero-stats flex gap-6">
           <div class="stat"><div class="stat-num">$300K+</div><div class="stat-label">tracked prize money open right now</div></div>
           <div class="stat"><div class="stat-num">27</div><div class="stat-label">hackathons open for registration</div></div>
@@ -190,6 +196,24 @@
       </div>
     </section>
 
+    <!-- Founders & the VC lens -->
+    <section id="founders" class="container section">
+      <h2>Founders &amp; the VC lens</h2>
+      <p class="text-muted" style="margin-top: var(--space-1);">Real stories from tracked winner data, told the way you'd tell a friend — plus what the money actually asks for. Every portrait here is an AI illustration and every script is composed from tracked public info; where a persona is fictional, it says so on the card.</p>
+      <div id="founder-cards" class="founder-grid"></div>
+      <div class="card predictor-card" style="margin-top: var(--space-4);">
+        <h3>The five questions every VC asks</h3>
+        <p class="text-muted" style="margin: var(--space-1) 0 var(--space-3);">Survive these five and you've survived most first meetings. The <a href="#pitch">pitch generator</a> gives each one a timed slot.</p>
+        <ol class="vc-list">
+          <li><strong>“Show me the week someone paid you.”</strong> Traction isn't a logo slide — it's a week of real usage or revenue.</li>
+          <li><strong>“Why is this possible today that wasn't last year?”</strong> If nothing changed, the timing story is thin.</li>
+          <li><strong>“What do you own that a competitor can't clone by Friday?”</strong> Data, distribution, or a workflow — something that compounds.</li>
+          <li><strong>“Who exactly buys this, and how do they find out it exists?”</strong> “Developers” is not a buyer; “security teams at 500-person fintechs” is.</li>
+          <li><strong>“Why is this team the one that wins it?”</strong> Obsession, unfair advantage, or both — said in five seconds.</li>
+        </ol>
+      </div>
+    </section>
+
     <!-- Investor pitch script -->
     <section id="pitch" class="container section">
       <h2>Investor pitch-script generator</h2>
@@ -256,5 +280,6 @@
   <script src="entrances.js"></script>
   <script src="video.js"></script>
   <script src="script.js"></script>
+  <script src="founders.js"></script>
 </body>
 </html>
