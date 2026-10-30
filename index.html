@@ -27,6 +27,8 @@
         <a href="#founders" class="nav-link">Founders</a>
         <a href="#entrances" class="nav-link">Entrance finder</a>
         <a href="#predictor" class="nav-link">Win Predictor</a>
+        <a href="#stays" class="nav-link">Stays</a>
+        <a href="#media" class="nav-link">Media studio</a>
         <a href="#toolkit" class="nav-link">Toolkit</a>
         <a href="#calendar" class="nav-link">Calendar</a>
         <a href="#team" class="nav-link">Team board</a>
@@ -220,6 +222,139 @@
           </div>
         </div>
         <div id="vid-result" style="margin-top: var(--space-4);"></div>
+      </div>
+    </section>
+
+    <!-- Media studio (media.js) -->
+    <section id="media" class="container section">
+      <h2>Media studio</h2>
+      <p class="text-muted" style="margin-top: var(--space-1);">Season charts, shareable graphics, and exports — everything renders locally in your browser.</p>
+
+      <div class="card" style="margin-top: var(--space-4);">
+        <h3>Sponsor-track radar</h3>
+        <p class="text-muted text-sm">How often each track appears across the current open field — the meta at a glance.</p>
+        <canvas id="radar-chart" width="640" height="420" role="img" aria-label="Radar chart of sponsor-track tag frequency across open hackathons" style="max-width:100%;height:auto;"></canvas>
+        <p id="radar-note" class="text-muted text-sm"></p>
+      </div>
+
+      <div class="card" style="margin-top: var(--space-4);">
+        <h3>Prize pools — top open events</h3>
+        <p class="text-muted text-sm">Announced cash pools only; events without a public number are excluded.</p>
+        <canvas id="prize-chart" width="640" height="420" role="img" aria-label="Horizontal bar chart of the largest open prize pools" style="max-width:100%;height:auto;"></canvas>
+      </div>
+
+      <div class="card" style="margin-top: var(--space-4);">
+        <h3>Season recap</h3>
+        <p class="text-muted text-sm">Concluded events this season, oldest first.</p>
+        <div id="timeline-out" style="overflow-x:auto;"></div>
+      </div>
+
+      <div class="card" style="margin-top: var(--space-4);">
+        <h3>Poster generator</h3>
+        <div class="vid-grid">
+          <div class="flex flex-col gap-3">
+            <div>
+              <label class="pred-label" for="poster-title">Project title</label>
+              <input id="poster-title" class="input" type="text" maxlength="80" placeholder="e.g. QueueLess — shelter wait-times, live">
+            </div>
+            <div>
+              <label class="pred-label" for="poster-tagline">Tagline</label>
+              <input id="poster-tagline" class="input" type="text" maxlength="120" placeholder="One line your poster should shout">
+            </div>
+            <div class="flex items-center gap-2">
+              <button id="poster-download" class="btn btn-primary" type="button">⬇ Download poster PNG</button>
+              <button id="poster-copy-caption" class="btn btn-secondary" type="button">⧉ Copy caption</button>
+            </div>
+            <p id="poster-caption-text" class="text-muted text-sm"></p>
+          </div>
+          <div>
+            <canvas id="poster-canvas" width="1200" height="675" role="img" aria-label="Poster preview" style="max-width:100%;height:auto;border-radius: var(--radius-md);box-shadow: var(--shadow-lifted-card);"></canvas>
+          </div>
+        </div>
+      </div>
+
+      <div class="card" style="margin-top: var(--space-4);">
+        <h3>Sticker generator</h3>
+        <div class="vid-grid">
+          <div class="flex flex-col gap-3">
+            <div>
+              <label class="pred-label" for="sticker-name">Event or team name</label>
+              <input id="sticker-name" class="input" type="text" maxlength="40" list="sticker-events" value="HackBoard">
+              <datalist id="sticker-events"></datalist>
+            </div>
+            <button id="sticker-download" class="btn btn-primary" type="button" style="align-self:flex-start;">⬇ Download sticker PNG</button>
+          </div>
+          <div>
+            <canvas id="sticker-canvas" width="600" height="600" role="img" aria-label="Round sticker preview" style="max-width:100%;height:auto;border-radius:50%;"></canvas>
+          </div>
+        </div>
+      </div>
+
+      <div class="card" style="margin-top: var(--space-4);">
+        <h3>Exports &amp; sharing</h3>
+        <div class="flex items-center gap-2" style="flex-wrap:wrap;">
+          <button id="chat-export" class="btn btn-secondary" type="button">⬇ Export HackBot chat (.md)</button>
+          <button id="pred-card" class="btn btn-secondary" type="button">🖼 Predictor share card (.png)</button>
+          <label class="text-sm text-muted" style="display:flex;align-items:center;gap:8px;">
+            <input type="checkbox" id="hb-sound-toggle"> Sound on/off (toolkit chimes)
+          </label>
+        </div>
+      </div>
+    </section>
+
+    <!-- Stays near the hackathons -->
+    <section id="stays" class="container section">
+      <h2>Stays near the hackathons</h2>
+      <p class="text-muted" style="margin-top: var(--space-1);">Illustrative listings for the demo — not live inventory. Verify on booking sites before booking.</p>
+
+      <div class="stays-search card">
+        <div class="stays-field stays-field-dest">
+          <label class="text-xs text-muted" for="stays-hub">Destination</label>
+          <select id="stays-hub" class="input">
+            <option value="">All hubs</option>
+          </select>
+        </div>
+        <div class="stays-field">
+          <label class="text-xs text-muted" for="stays-checkin">Check-in</label>
+          <input id="stays-checkin" class="input" type="date">
+        </div>
+        <div class="stays-field">
+          <label class="text-xs text-muted" for="stays-checkout">Check-out</label>
+          <input id="stays-checkout" class="input" type="date">
+        </div>
+        <div class="stays-field stays-field-guests">
+          <label class="text-xs text-muted" for="stays-guests">Guests</label>
+          <input id="stays-guests" class="input" type="number" min="1" max="8" step="1" value="1">
+        </div>
+      </div>
+
+      <div class="stays-filters">
+        <div class="stays-chip-row" id="stays-type-chips">
+          <button id="stays-saved-chip" type="button" class="filter-chip stays-saved-chip" aria-pressed="false">♥ Saved <span class="stays-saved-count">0</span></button>
+        </div>
+        <div class="stays-price">
+          <label class="text-xs text-muted" for="stays-max-price">Max price</label>
+          <div class="stays-price-row flex items-center gap-2">
+            <input id="stays-max-price" type="range" min="40" max="400" step="10" value="400">
+            <span id="stays-price-label" class="text-sm">Any price</span>
+          </div>
+        </div>
+        <div class="stays-chip-row" id="stays-amenity-chips"></div>
+      </div>
+
+      <p class="stays-count text-sm text-muted" id="stays-count" aria-live="polite"></p>
+      <div id="stays-grid" class="stays-grid"></div>
+      <div id="stays-empty" class="card empty-state" style="display:none;">
+        <p><strong>No stays match that combo.</strong></p>
+        <p class="text-sm text-muted">Try widening the dates, price cap, or clearing a chip or two.</p>
+        <button id="stays-reset" class="btn btn-secondary btn-sm">Reset all filters</button>
+      </div>
+
+      <div id="stays-modal-backdrop" class="stay-modal-backdrop" hidden>
+        <div id="stays-modal" class="stay-modal" role="dialog" aria-modal="true" aria-labelledby="stays-modal-title">
+          <button id="stays-modal-close" class="stay-modal-close" type="button" aria-label="Close stay details">✕</button>
+          <div id="stays-modal-body"></div>
+        </div>
       </div>
     </section>
 
@@ -423,5 +558,17 @@
   <script src="script.js"></script>
   <script src="founders.js"></script>
   <script src="bundle.js"></script>
+  <script src="media.js"></script>
+  <script>
+    if ("serviceWorker" in navigator) {
+      window.addEventListener("load", function () {
+        navigator.serviceWorker.register("sw.js").catch(function (err) {
+          console.warn("HackBoard: offline support unavailable —", err);
+        });
+      });
+    }
+  </script>
+  <script src="stays-data.js"></script>
+  <script src="stays.js"></script>
 </body>
 </html>

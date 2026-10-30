@@ -220,6 +220,38 @@
     }
   }
 
+  /* ---------- voice preview (speechSynthesis — spoken, never recorded or uploaded) ---------- */
+
+  let voiceBtn = null; /* button of the narration currently speaking */
+
+  function stopVoice() {
+    if (window.speechSynthesis) speechSynthesis.cancel();
+    if (voiceBtn) { voiceBtn.textContent = "🎙 Voice preview"; voiceBtn = null; }
+  }
+
+  function toggleFounderVoice(f, btn) {
+    if (!("speechSynthesis" in window) || !window.SpeechSynthesisUtterance) {
+      if (window.HackBoard) window.HackBoard.toast("Voice preview isn't supported in this browser.");
+      return; /* graceful no-op */
+    }
+    if (voiceBtn === btn) { stopVoice(); return; } /* re-click while speaking → cancel */
+    stopVoice();
+    voiceBtn = btn;
+    btn.textContent = "⏹ Stop voice";
+    let remaining = f.narration.length;
+    f.narration.forEach(function (line) {
+      const u = new SpeechSynthesisUtterance(line);
+      u.rate = 0.98;
+      const done = function () {
+        remaining -= 1;
+        if (remaining <= 0 && voiceBtn === btn) stopVoice();
+      };
+      u.onend = done;
+      u.onerror = done;
+      speechSynthesis.speak(u);
+    });
+  }
+
   /* ---------- rendering ---------- */
 
   function renderCards() {
@@ -235,6 +267,7 @@
         '<p class="founder-tag text-muted text-sm">' + f.tag + "</p>" +
         '<p class="founder-story">' + f.story + "</p>" +
         '<button class="btn btn-secondary founder-play" data-founder="' + f.id + '">▶ Watch them explain it (AI video)</button>' +
+        '<button class="btn btn-ghost founder-voice" data-founder="' + f.id + '">🎙 Voice preview</button>' +
         '<div class="founder-video" id="fv-' + f.id + '"></div>' +
       "</article>";
     }).join("");
@@ -243,6 +276,13 @@
       btn.addEventListener("click", function () {
         const f = FOUNDERS.find(function (x) { return x.id === btn.dataset.founder; });
         playFounderStory(f, document.getElementById("fv-" + f.id));
+      });
+    });
+
+    grid.querySelectorAll(".founder-voice").forEach(function (btn) {
+      btn.addEventListener("click", function () {
+        const f = FOUNDERS.find(function (x) { return x.id === btn.dataset.founder; });
+        toggleFounderVoice(f, btn);
       });
     });
   }
