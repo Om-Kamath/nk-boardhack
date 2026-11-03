@@ -113,6 +113,31 @@
     );
   }
 
+  /* ---------- Intent: hosts, venues & who's going ---------- */
+
+  function findEventIn(text) {
+    const t = text.toLowerCase();
+    return HACKBOARD_DATA.open.find(function (ev) {
+      const words = ev.name.toLowerCase().replace(/[^a-z0-9 ]/g, " ").split(/\s+/)
+        .filter(function (w) { return w.length > 3 && ["hackathon", "with", "challenge"].indexOf(w) === -1; });
+      return words.some(function (w) { return t.indexOf(w) !== -1; });
+    });
+  }
+
+  function replyEventIntel(ev) {
+    const r = HackBoard.rsvpFor(ev.id);
+    const lines = ["**" + ev.name + "**"];
+    if (ev.host) lines.push("🏡 **Host:** " + ev.host);
+    if (ev.venue) lines.push("📍 **Venue:** " + ev.venue + (ev.location ? " — " + ev.location : ""));
+    lines.push("🗓️ " + HackBoard.fmtRange(ev.dates, ev.deadline) + " · " + ev.prize);
+    if (ev.hostInsight) lines.push("\n💡 " + ev.hostInsight);
+    lines.push("\nYour RSVP: " + (r.going === true
+      ? "🎉 Going" + (r.crew.length ? " with " + r.crew.join(", ") : "")
+      : r.going === false ? "not going" : "not marked yet — tap 🎉 Going on the card"));
+    lines.push("[Event page](" + ev.url + ")");
+    botReply(lines.join("\n"));
+  }
+
   /* ---------- CV matching ---------- */
 
   const SKILL_MAP = {
@@ -220,7 +245,7 @@
     }
 
     if (/(help|what can you|options)/.test(t)) {
-      botReply("Things I can do:\n• **What's new** — the latest on this season's events\n• **Deadlines** — everything open, soonest first\n• **Prizes** — biggest pools right now\n• **Winners** — who won, who's pending\n• **CV matching** — upload or paste your resume and I'll rank the hackathons you should register in");
+      botReply("Things I can do:\n• **What's new** — the latest on this season's events\n• **Deadlines** — everything open, soonest first\n• **Prizes** — biggest pools right now\n• **Winners** — who won, who's pending\n• **Host intel** — ask \"who runs BostonHacks\" or \"where is 300 AI\"\n• **RSVP** — ask \"what am I going to\" for your plans\n• **CV matching** — upload or paste your resume and I'll rank the hackathons you should register in");
       return;
     }
 
@@ -228,6 +253,15 @@
     if (/(deadline|due|when|close|last day)/.test(t)) return replyDeadlines();
     if (/(prize|money|pool|payout|reward|cash)/.test(t)) return replyPrizes();
     if (/(win|won|winner|result|outcome)/.test(t)) return replyWinners();
+
+    if (/(host|venue|where|who|going|attend|partiful|insight)/.test(t)) {
+      const ev = findEventIn(text);
+      if (ev) { replyEventIntel(ev); return; }
+      if (/(going|attend|partiful|rsvp)/.test(t)) {
+        botReply("RSVPs live on every IRL event card — tap 🎉 **Going**, add your crew by name, and your picks show under the **🎉 My plans** filter. Fair warning: it's saved on this device only, not shared with organizers.");
+        return;
+      }
+    }
 
     if (/(cv|resume|match me|which.*(register|join|enter)|recommend|suggest|where should)/.test(t)) {
       if (cvText) return replyCvMatch("pasted");
